@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the power of chanting and sound healing to balance your chakras with Spiritly’s holistic practices.">
+    <title>Chanting and Chakras: The Power of Sound Healing - Spiritly</title>
+    <link rel="stylesheet" href="meditation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS3 Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f7fafc, #e6fffa);
+            color: #2d3748;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d6bcfa, #81e6d9);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            /* No shimmering effect, simple flat design */
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0.5rem auto;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .article-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .article-section.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .article-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #5a4d82;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .article-section h3 {
+            color: #5a4d82;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .article-section p {
+            font-size: 1.05rem;
+            color: #4a5568;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Square Image Container with Border Pulse Effect */
+        .image-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            position: relative;
+            border-radius: 0; /* Square shape */
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(129, 230, 217, 0.5);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+
+        .image-container.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .image-container:hover img {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #81e6d9;
+            animation: border-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes border-pulse {
+            0% { border-color: #81e6d9; }
+            50% { border-color: #d6bcfa; }
+            100% { border-color: #81e6d9; }
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #d6bcfa, #81e6d9);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(129, 230, 217, 0.7);
+        }
+
+        .cta-button:hover::after {
+            content: 'Join our sound healing sessions!';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #5a4d82;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            animation: tooltip 0.3s ease forwards;
+        }
+
+        @keyframes tooltip {
+            to { opacity: 1; top: -50px; }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #5a4d82;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-to-top.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(45deg, #81e6d9, #d6bcfa);
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .article-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .image-container {
+                max-width: 280px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <ul>
+            <li><a href="footprints.html">Footprints</a></li>
+            <li class="dropdown">
+            <a href="privileges.html">Privileges</a>
+            <div class="dropdown-content">
+                <a href="yoga.html">Yoga</a>
+                <a href="meditation.html">Meditation</a>
+                <a href="prayer.html">Prayer</a>
+                <div class="sub-dropdown">
+                <a href="mantra.html">Mantra Chanting</a>
+                <div class="sub-dropdown-content">
+                    <a href="mrityunjaya.html">Mahamrityunjaya</a>
+                    <a href="gayatrimantra.html">Gayatri Mantra</a>
+                    <a href="durga.html">Durga Dvatrimsha Namavali</a>
+                </div>
+                </div>
+            </div>
+            </li>
+            <li><a href="resources.html">Insights</a></li>
+            <li><a href="testimonials.html">Soul Stories</a></li>
+            <li><a href="contact.html">Connect</a></li>
+        </ul>
+        </nav>
+    </header>
+    <div class='header'>
+        <h1>Chanting and Chakras: The Power of Sound Healing</h1>
+        <p>Discover how sound healing through chanting balances your chakras at Spiritly.</p>
+    </div>
+
+    <div class="container">
+        <div class="article-section">
+            <h2>Harmonize Your Energy with Chanting</h2>
+            <p>Chanting, a cornerstone of Vedic traditions, is a powerful form of sound healing that resonates with the body’s energy centers, or chakras. At Spiritly, we harness the vibrations of mantras like Om and the Gayatri Mantra to align and balance the chakras, promoting mental clarity, emotional harmony, and spiritual growth. Suitable for all ages, these practices offer a transformative path to inner peace.</p>
+            
+            <h3>The Science of Sound Healing</h3>
+            <p>Sound healing works by creating vibrational frequencies that influence the body’s energy field. Each chakra, from the Root to the Crown, vibrates at a specific frequency. Chanting mantras, such as the Maha Mrityunjay Mantra, generates sound waves that stimulate these energy centers, clearing blockages and restoring balance. This practice reduces stress and enhances focus, making it accessible for kids, teens, and adults alike.</p>
+            
+            <div class="image-container">
+                <img src="chakras.jpg" alt="Chanting and Chakra Healing">
+            </div>
+            
+            <h3>Activating Chakras Through Chanting</h3>
+            <p>Each chakra responds to specific sounds. For example, chanting “Lam” activates the Root Chakra, grounding you, while “Om” resonates with the Crown Chakra, fostering spiritual connection. At Spiritly, our guided chanting sessions tailor these practices for all ages, with simplified versions for children to engage playfully. Regular chanting clears energetic imbalances, promoting emotional stability and vitality.</p>
+            
+            <h3>Benefits for Mind and Body</h3>
+            <p>Chanting not only balances chakras but also calms the mind. The rhythmic repetition of mantras lowers cortisol levels, reducing anxiety and improving mood. For teens, it helps manage emotional turbulence, while adults find relief from mental fatigue. Kids enjoy the musicality of chanting, which enhances focus and creativity. Combined with Spiritly’s yoga add-ons, chanting amplifies holistic well-being.</p>
+            
+            <h3>A Practice for All Ages</h3>
+            <p>At Spiritly, we make chanting inclusive and approachable. Our sessions are designed to suit everyone, from kids exploring sound through playful mantras to adults seeking deeper spiritual alignment. Whether you’re chanting to balance your Heart Chakra for compassion or your Throat Chakra for expression, our guided practices create a nurturing environment for growth.</p>
+            
+            <p>Unlock the power of sound healing with Spiritly’s chanting and chakra-balancing programs. Join our sessions, which include daily yoga add-ons, to experience the transformative effects of mantra vibrations. Start your journey today and harmonize your chakras for a peaceful, vibrant life.</p>
+        </div>
+
+        <div class="cta-section">
+            <button class="cta-button" onclick="privileges.html">Join Our Chanting Programs</button>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+   <footer class="footer">
+    © 2025 Spiritly. All rights reserved.
+      <div class="footer-left">
+      <h2>SPIRITLY</h2>
+      <p>© 2025 All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <a href="privacyandpolicy.html">Privacy Policy</a>
+      <a href="terms and conditions">Terms of Service</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </footer>
+
+    <script>
+        // JavaScript for interactivity
+        window.addEventListener('scroll', function () {
+            const articleSection = document.querySelector('.article-section');
+            const imageContainer = document.querySelector('.image-container');
+            const scrollToTop = document.querySelector('.scroll-to-top');
+            const trigger = window.innerHeight * 0.8;
+
+            if (articleSection.getBoundingClientRect().top < trigger) {
+                articleSection.classList.add('visible');
+            }
+
+            if (imageContainer.getBoundingClientRect().top < trigger) {
+                imageContainer.classList.add('visible');
+            }
+
+            scrollToTop.classList.toggle('visible', window.scrollY > 300);
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
