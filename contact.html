@@ -166,7 +166,7 @@
 
       // Simulated form submission
       formMessage.style.color = 'green';
-      formMessage.textContent = "🙏 Thank you! Your message has been received. We'll contact you soon.";
+      formMessage.textContent = "🙏Thankyou! Your message has been received. We'll contact you soon.";
       form.reset();
     });
   </script>
@@ -193,20 +193,8 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
- // chatbot//
-
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  // chatbot//
+  // (Firebase already initialized above, no need to redeclare or re-import)
     // go to payment gateway when the forM is submitted
   form.addEventListener('submit', function(e) {
     e.preventDefault();
