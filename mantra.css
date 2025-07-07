@@ -210,3 +210,27 @@ a:hover {
 .card-btn:hover {
   background-color: #5a4b8d;
 }
+.footer-right{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #4b3f72;
+  color: white;
+  text-align: justify;
+  padding: 10px 0;
+
+}
+.footer-right p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.footer-right a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+footer {
+    background-color: #4b3f72;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
