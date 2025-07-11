@@ -163,7 +163,7 @@ body {
 
 /* 🌟 Hero Section */
 .hero {
-    background: linear-gradient(135deg, #013220, #2E5E4E);
+    background: linear-gradient(135deg, #62e2b3, #2E5E4E);
     color: white;
     text-align: center;
     padding: 120px 20px;
@@ -172,7 +172,7 @@ body {
 
 .hero::before {
     content: "";
-    background: url('sacred-pattern.png') no-repeat center;
+    background: url('footprints.jpg') no-repeat center;
     background-size: cover;
     opacity: 0.1;
     position: absolute;
@@ -253,7 +253,7 @@ body {
 
 .story-content h2 {
     font-size: 32px;
-    color: #013220;
+    color: #59c09a;
 }
 
 .story-content p {
