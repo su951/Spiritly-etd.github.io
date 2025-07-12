@@ -5,6 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mantra Chanting</title>
     <link rel="stylesheet" href="mantra.css">
+    <style>
+        .section{
+            font-family: 'Arial', sans-serif;
+            color: #cea6e5;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+            list-style-type: square;
+            text-align: center;
+            list-style-position: inside;
+            background-color: hsla(40, 12%, 10%, 0.603);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .plan-card {
+            font-family: 'Arial', sans-serif;
+            color: #21045a;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+            text-align: center;
+            background-color: #bda6d3;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .plan-card li {
+            color: #540a80;
+            list-style-type: lower-roman;
+            text-align: left;
+            margin: 10px 0;
+            padding-block-end: 10px;
+        }
+        .plan-card h3 {
+            color: #21045a;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .plan-card .price {
+            font-size: 2.7em;
+            color: #540a80;
+            margin-bottom: 10px;
+        }
+        .plan-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .plan-card .plan-details {
+            font-size: 1.2em;
+            color: #21045a;
+            margin-top: 10px;
+        }
+        .plan-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+       .info-class{
+        font-size: 1.2em;
+        color: #e6e4e9c9;
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 800px;
+        text-align: center;
+        background-color: #423b4183;
+       }
+       .info-class:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+       .about-info {
+            font-family: 'Arial', sans-serif;
+            color: #c1b9c5;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+            text-align: center;
+            background-color: hsla(50, 4%, 29%, 0.678);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .about-info h3 {
+            color: #f0f0f0;
+        }
+        .about-info ul {
+            list-style-type: square;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .about-info:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+       .footer-right a {
+            display: inline-block;
+            padding-bottom: 15px;
+            align-items: center;
+            color: #f0e6f6;
+            justify-content: center;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        
+        .footer-right a :hover{
+            margin-right: 5px;
+            font-size: 1.2em;
+            color:  #3b2349;
+        }
+
+        </style>
 </head>
 <body>
     <!--navbar-->
@@ -114,7 +228,7 @@
             <p>At Serenity Path, we believe in the transformative power of yoga and meditation. Our sessions are designed to help you achieve physical health, mental clarity, and spiritual growth. With experienced instructors and a supportive community, we provide a nurturing environment for your journey towards inner peace.</p>
         </div>
     </div>
-     <div><h3>📅 Session Format & Access</h3>
+     <div class="about-info"><h3>📅 Session Format & Access</h3>
 <ul><li>Yoga: Mon–Fri, 20 sessions/month (1 hour each)</li>
 
 <li>Therapies: Weekly sessions (4/month per service)</li>
@@ -122,7 +236,7 @@
 <li>Live Access: Online / Offline (Gardanibag shantipath  near Mangala bhawan Patna 800001 visits)</li>
 
 <li>Group Chantings: Available to all yoga members at no extra cost</li></ul>
-    <div> Book Your Spot Today!
+    <div class="info-class"> Book Your Spot Today!
  Add Your Location / Center Address - Gardanibag shantipath  near Mangala bhawan Patna 800001
  Call / WhatsApp: +91 9955437128
  Website: https://spiritly.in/
@@ -138,9 +252,9 @@
       <a href="contact.html">Contact Us</a>
    
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/spi_ritly?igsh=dDd4NWRlMzc1ajU1"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook-f">facebook</i></a>
+                <a href="https://www.instagram.com/spi_ritly?igsh=dDd4NWRlMzc1ajU1"><i class="fab fa-instagram">instagram</i></a>
+                <a href="#"><i class="fab fa-youtube">youtube</a>
             </div>
         </div>
     </footer>
