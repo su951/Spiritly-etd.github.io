@@ -210,27 +210,32 @@ a:hover {
 .card-btn:hover {
   background-color: #5a4b8d;
 }
-.footer-right{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #4b3f72;
-  color: white;
-  text-align: justify;
-  padding: 10px 0;
-
-}
-.footer-right p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-.footer-right a {
-  color: #f1f1f1;
-  text-decoration: none;
-}
-footer {
-    background-color: #4b3f72;
-    color: white;
-    padding: 20px 0;
+.footer {
+    background: #02246e;
+    color: #1e66c4be;
     text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+footer a {
+    color: #40cae2e8;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #53d3f3;
+}
+.social-links a {
+    margin: 0 10px;
+    color: #6ddfee;
+    text-decoration: none;
+    font-size: 20px;
+}
+.social-links{ 
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
