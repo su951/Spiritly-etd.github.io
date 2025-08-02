@@ -12,9 +12,9 @@ html, body {
 }
 
 .page-wrapper {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .main-content {
@@ -118,6 +118,7 @@ a:hover {
 .left-btn {
   margin-left: 5%;
 }
+
 .right-btn {
   margin-right: 5%;
 }
@@ -192,6 +193,7 @@ a:hover {
   border-radius: 20px;
   transition: background-color 0.3s, transform 0.3s;
 }
+
 #login-btn:hover {
   background-color: #3e4556;
   transform: scale(1.05);
@@ -253,6 +255,7 @@ a:hover {
   display: none;
   flex-direction: column;
 }
+
 .form-content.active {
   display: flex;
 }
@@ -280,6 +283,7 @@ a:hover {
   font-weight: bold;
   cursor: pointer;
 }
+
 .form-content button:hover {
   background-color: darkgreen;
 }
