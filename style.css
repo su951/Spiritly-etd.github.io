@@ -394,6 +394,9 @@ a:hover {
       text-decoration: none;
       margin-left: 15px;
     }
+.social-media{
+      color: white;
+}
 
     .popup-container {
       display: none; /* Keep hidden until triggered */
