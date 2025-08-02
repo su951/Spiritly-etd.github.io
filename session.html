@@ -1,0 +1,144 @@
+<!--write a code to add live session links and youTube video content as per user subscription-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Sessions</title>
+    <link rel="stylesheet" href="session.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="footprints.html">Footprints</a></li>
+                <li class="dropdown">
+                    <a href="privileges.html">Privileges</a>
+                    <div class="dropdown-content">
+                        <a href="yoga.html">Yoga</a>
+                        <a href="meditation.html">Meditation</a>
+                        <a href="prayer.html">Prayer</a>
+                        <div class="sub-dropdown">
+                            <a href="mantra.html">Mantra Chanting</a>
+                            <div class="sub-dropdown-content">
+                                <a href="mrityunjaya.html">Mahamrityunjaya</a>
+                                <a href="gayatrimantra.html">Gayatri Mantra</a>
+                                <a href="durga.html">Durga Dvatrimsha Namavali</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="testimonials.html">Soul Stories</a></li>
+                <li><a href="contact.html">Connect</a></li>
+                <li><a href="session.html"> My Sessions</a></li>
+            </ul>
+        </nav>
+    </header>
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <h1 class="hero-heading">Join Our Live Spiritual Sessions</h1>
+            </div>
+        </section>
+        <section class="session-intro">
+            <p>Experience the power of live spiritual sessions designed to enhance your journey towards peace and enlightenment. Join us for yoga, meditation, and prayer sessions led by experienced practitioners.</p>
+        </section>
+            <section class="session-features">
+                <div class="feature-card">
+                    <h3>Live Yoga Sessions</h3>
+                    <p>Engage in live yoga sessions that help you connect with your body and mind.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Guided Meditation</h3>
+                    <p>Participate in guided meditation sessions to find inner peace and clarity.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Prayer Gatherings</h3>
+                    <p>Join our prayer gatherings to foster a sense of community and spiritual connection.</p>
+                </div>
+            </section>
+<!--i want to automatically update the live sessions which are started at zoom call-->
+        <main class="session-main">
+            <section class="live-sessions-section">
+                <div class="session-card">
+                    <h2>Upcoming Live Sessions</h2>
+                    <ul>
+                        <li>
+                            <h3>Yoga for Beginners</h3>
+                            <p>Date: 2023-11-01</p>
+                            <p>Time: 10:00 AM - 11:00 AM</p>
+                            <a href="https://zoom.us/j/1234567890" target="_blank">Join Now</a>
+                        </li>
+                        <li>
+                            <h3>Meditation Masterclass</h3>
+                            <p>Date: 2023-11-02</p>
+                            <p>Time: 2:00 PM - 3:00 PM</p>
+                            <a href="https://zoom.us/j/0987654321" target="_blank">Join Now</a>
+                        </li>
+
+                        <li>
+                            <h3>Prayer Session</h3>
+                            <p>Date: 2023-11-03</p>
+                            <p>Time: 5:00 PM - 6:00 PM</p>
+                            <a href="https://zoom.us/j/1122334455" target="_blank">Join Now</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="video-content">
+                    <h2>YouTube Spiritual Content</h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/your_video_id" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+    <!--more content for live sessions-->
+    <div class="customer-query">
+        <h2>Customer Queries</h2>
+        <p>If you have any questions or need assistance regarding our live sessions, please reach out to us.</p>
+        <form action="submit_query.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="query">Your Query:</label>
+            <textarea id="query" name="query" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2023 Spiritual Healing. All rights reserved.</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Example script to handle form submission
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Your query has been submitted successfully!');
+            this.reset(); // Reset the form after submission
+        });
+        // Example script to dynamically update live sessions
+        const sessions = [
+            { title: "Yoga for Beginners", date: "2023-11-01", time: "10:00 AM - 11:00 AM", link: "https://zoom.us/j/1234567890" },
+            { title: "Meditation Masterclass", date: "2023-11-02", time: "2:00 PM - 3:00 PM", link: "https://zoom.us/j/0987654321" },
+            { title: "Prayer Session", date: "2023-11-03", time: "5:00 PM - 6:00 PM", link: "https://zoom.us/j/1122334455" }
+        ];
+        const sessionList = document.querySelector('.live-sessions-section ul');
+        sessions.forEach(session => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<h3>${session.title}</h3>
+                                  <p>Date: ${session.date}</p>
+                                  <p>Time: ${session.time}</p>
+                                  <a href="${session.link}" target="_blank">Join Now</a>`;
+            sessionList.appendChild(listItem);
+        });
+        // Example script to embed YouTube video content
+        const videoContent = document.querySelector('.video-content iframe');
+        videoContent.src = "https://www.youtube.com/embed/your_video_id"; // Replace
+        // dynamically add the updated live class changes
+        videoContent.src += "?autoplay=1"; // Autoplay the video when the page loads
+        // Ensure the video is responsive
+        videoContent.style.width = "100%";
+        videoContent.style.height = "315px"; // Set a default height
+        videoContent.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"; // Allow fullscreen and other features
+        videoContent.allowFullscreen = true; // Allow fullscreen mode
+
+    </script>
