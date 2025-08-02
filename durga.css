@@ -265,3 +265,33 @@ nav li a:hover {
 .audio-controls button:hover {
     background: #ffcc00;
     color: #333;
+}
+.footer {
+    background: #02246e;
+    color: #1e66c4be;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+footer a {
+    color: #40cae2e8;
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #53d3f3;
+}
+.social-links a {
+    margin: 0 10px;
+    color: #6ddfee;
+    text-decoration: none;
+    font-size: 20px;
+}
+.social-links{ 
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
