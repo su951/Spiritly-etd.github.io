@@ -35,45 +35,47 @@
       </nav>
     </header>
 
-    <div class="videoContainer">
-      <video autoplay muted loop id="bg-video">
-        <source src="spiritly.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-
-    <div class="floating-buttons">
-     <button class="floating-btn left-btn" onclick="location.href='privileges.html'">Discover Healing</button>
-     <button class="floating-btn right-btn" onclick="location.href='contact.html'">Reserve Your Space</button>
-
-    </div>
-
-    <div id="login-popup" class="popup-container">
-      <div class="form-container">
-        <span class="close-btn">&times;</span>
-        <div class="tabs">
-          <div class="tab active" data-form="loginForm">Login</div>
-          <div class="tab" data-form="signupForm">Sign Up</div>
-        </div>
-
-        <form id="loginForm" class="form-content active">
-          <h3><b>Ignite Your Spirit with SPIRITLY</b></h3>
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
-          <button type="submit">Login</button>
-          <div class="note">Forgot your password?</div>
-        </form>
-
-        <form id="signupForm" class="form-content">
-          <h3><b>Step into Community</b></h3>
-          <input type="text" placeholder="Full Name" required />
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
-          <button type="submit">Create Account</button>
-          <div class="note">Already have an account? Login above.</div>
-        </form>
+    <main class="content">
+      <div class="videoContainer">
+        <video autoplay muted loop id="bg-video">
+          <source src="spiritly.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
-    </div>
+
+      <div class="floating-buttons">
+        <button class="floating-btn left-btn" onclick="location.href='privileges.html'">Discover Healing</button>
+        <button class="floating-btn right-btn" onclick="location.href='contact.html'">Reserve Your Space</button>
+      </div>
+
+      <div id="login-popup" class="popup-container">
+        <div class="form-container">
+          <span class="close-btn">&times;</span>
+          <div class="tabs">
+            <div class="tab active" data-form="loginForm">Login</div>
+            <div class="tab" data-form="signupForm">Sign Up</div>
+          </div>
+
+          <form id="loginForm" class="form-content active">
+            <h3><b>Ignite Your Spirit with SPIRITLY</b></h3>
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+            <div class="note">Forgot your password?</div>
+          </form>
+
+          <form id="signupForm" class="form-content">
+            <h3><b>Step into Community</b></h3>
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Create Account</button>
+            <div class="note">Already have an account? Login above.</div>
+          </form>
+        </div>
+      </div>
+    </main>
+
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-left">
