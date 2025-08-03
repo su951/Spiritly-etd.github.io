@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Sessions</title>
+    <title>Sessions</title>
      <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="session.css">
     <!-- Tailwind CSS CDN for professional and responsive styling -->
@@ -37,13 +37,53 @@
             </ul>
         </nav>
     </header>
+<main class="container mx-auto p-6 md:p-10">
 
-    <section class="hero-section">
+        <!-- Hero Section -->
+        <section class="session-intro text-center mb-12 bg-blue-500 text-white rounded-2xl p-8 shadow-lg">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">Live Spiritual Sessions</h1>
+            <p class="text-lg md:text-xl font-light max-w-2xl mx-auto">
+                Experience the power of live spiritual sessions designed to enhance your journey towards peace and enlightenment. Join us for yoga, meditation, and prayer sessions led by experienced practitioners.
+            </p>
         </section>
-        <section class="session-intro">
-            <p>Experience the power of live spiritual sessions designed to enhance your journey towards peace and enlightenment. Join us for yoga, meditation, and prayer sessions led by experienced practitioners.</p>
+         <!-- Side Panel: Progress Meter and YouTube Content -->
+            <aside class="space-y-8">
+                <!-- Spiritual Progress Meter -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Spiritual Growth Meter</h2>
+                    <p class="text-md text-gray-600 mb-6">
+                        Track your spiritual growth by attending our sessions and engaging with our content.
+                    </p>
+                    <div class="relative pt-1">
+                        <div class="flex mb-2 items-center justify-between">
+                            <div>
+                                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-white bg-blue-500">
+                                    Progress
+                                </span>
+                            </div>
+                              <div class="text-right">
+                                <span id="growth-percentage-text" class="text-lg font-bold text-blue-600">0%</span>
+                            </div>
+                        </div>
+                        <div class="overflow-hidden h-4 mb-4 text-xs flex rounded-full bg-gray-200 shadow-inner">
+                            <div
+                                id="growth-meter-bar"
+                                style="width: 0%;"
+                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center transition-all duration-500 ease-in-out bg-green-500 rounded-full"
+                            ></div>
+                        </div>
+                    </div>
+     <!-- YouTube Content Section -->
+                <div class="bg-white p-6 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">YouTube Spiritual Content</h2>
+                    <div id="youtube-content" class="aspect-video w-full rounded-lg overflow-hidden shadow-md">
+                        <!-- YouTube iframe will be dynamically added here -->
+                    </div>
+                    <p id="subscription-status" class="mt-4 text-center text-sm font-medium text-gray-500"></p>
+                </div>
+            </aside>
         </section>
-         
+        </main>
 <!--i want to automatically update the live sessions which are started at zoom call-->
         <main class="session-main">
             <section class="live-sessions-section">
@@ -152,47 +192,156 @@
     </div>
      
     <footer>
-        <p>&copy; 2023 Spiritual Healing. All rights reserved.</p>
+        <p> &copy; 2023 Spiritual Healing. All rights reserved.</p>
     </footer>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-         // State variables
+          // --- Core JavaScript Logic ---
+        
+        // Simulating a user's subscription level
+        // In a real application, this would come from your backend
+        const userSubscription = 'premium'; // Can be 'free' or 'premium'
+        const startingSoonThreshold = 15; // In minutes, for "Starts Soon" status
+
+        // --- Live Session Data based on subscription ---
+        const freeSessions = [
+            // Example session that is currently live
+            { title: "Morning Meditation", date: "2025-08-03", time: "14:00", link: "https://zoom.us/j/1234567890", duration: 60 },
+            // Example session that is starting soon (within 15 minutes)
+            { title: "Evening Prayer", date: "2025-08-03", time: "14:15", link: "https://zoom.us/j/0987654321", duration: 30 },
+            // Example session that is in the future
+            { title: "Yoga for Beginners", date: "2025-08-04", time: "10:00", link: "https://zoom.us/j/9999888877", duration: 60 }
+        ];
+        const premiumSessions = [
+            ...freeSessions, // Premium users get all free sessions plus more
+            // Example premium session in the future
+            { title: "Advanced Yoga Flow", date: "2025-08-05", time: "12:00", link: "https://zoom.us/j/4455667788", duration: 90 },
+            // Example premium session starting soon
+            { title: "Deep Dive into Mantras", date: "2025-08-03", time: "14:20", link: "https://zoom.us/j/9988776655", duration: 60 }
+        ];
+
+        // --- YouTube Video Data based on subscription ---
+        const freeVideos = 'https://www.youtube.com/embed/P6aF1H32dC8'; // A video for all users
+        const premiumVideos = 'https://www.youtube.com/embed/n4sL82H9H9w'; // A special video for premium users
+
+        /**
+         * Dynamically renders the list of live sessions based on the user's subscription.
+         * It checks the current time to highlight active sessions and provide status.
+         */
+        const renderSessions = () => {
+            const sessionsContainer = document.getElementById('sessions-container');
+            sessionsContainer.innerHTML = ''; // Clear previous content
+
+            const sessions = userSubscription === 'premium' ? premiumSessions : freeSessions;
+            const now = new Date();
+
+            sessions.forEach(session => {
+                const sessionDateTime = new Date(`${session.date}T${session.time}:00`);
+                const endTime = new Date(sessionDateTime.getTime() + session.duration * 60000);
+                const timeUntilStart = (sessionDateTime - now) / 1000 / 60; // Time in minutes
+
+                let actionHtml;
+                let badgeHtml = '';
+
+                if (now >= sessionDateTime && now <= endTime) {
+                    // Session is currently live
+                    badgeHtml = '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 animate-pulse">Live Now</span>';
+                    actionHtml = `
+                        <a href="${session.link}" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 shadow-md">
+                            Join Now
+                        </a>
+                    `;
+                } else if (timeUntilStart > 0 && timeUntilStart <= startingSoonThreshold) {
+                    // Session is starting soon
+                    badgeHtml = `<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">Starts Soon</span>`;
+                    actionHtml = `
+                        <a href="${session.link}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 shadow-md">
+                            Join Now
+                        </a>
+                    `;
+                } else {
+                    // Session is in the future
+                    const formattedTime = new Date(`${session.date}T${session.time}:00`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    actionHtml = `
+                        <button disabled class="bg-gray-300 text-gray-600 font-bold py-2 px-4 rounded-full cursor-not-allowed">
+                            Starts at ${formattedTime}
+                        </button>
+                    `;
+                }
+                
+                const sessionCard = `
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 flex items-center space-x-2">
+                                <span>${session.title}</span> ${badgeHtml}
+                            </h3>
+                            <p class="text-gray-600 text-sm mt-1">Date: ${session.date} | Time: ${session.time}</p>
+                        </div>
+                        ${actionHtml}
+                    </div>
+                `;
+                sessionsContainer.innerHTML += sessionCard;
+            });
+        };
+
+        /**
+         * Renders the YouTube video based on the user's subscription.
+         */
+        const renderYouTubeContent = () => {
+            const videoUrl = userSubscription === 'premium' ? premiumVideos : freeVideos;
+            const videoContainer = document.getElementById('youtube-content');
+            const subscriptionStatus = document.getElementById('subscription-status');
+
+            videoContainer.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="${videoUrl}" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+
+            if (userSubscription === 'premium') {
+                 subscriptionStatus.textContent = "You are a Premium user. Enjoy this exclusive content!";
+                 subscriptionStatus.classList.remove('text-red-500');
+                 subscriptionStatus.classList.add('text-green-500');
+            } else {
+                 subscriptionStatus.textContent = "Become a Premium user to unlock more exclusive videos!";
+                 subscriptionStatus.classList.add('text-red-500');
+                 subscriptionStatus.classList.remove('text-green-500');
+            }
+        };
+
+
+        // --- Spiritual Progress Meter Logic ---
         let siteVisits = 15;
         let zoomClasses = 8;
         const maxVisits = 50;
         const maxClasses = 20;
 
-        // Get DOM elements
         const growthMeterBar = document.getElementById('growth-meter-bar');
         const growthPercentageText = document.getElementById('growth-percentage-text');
         const siteVisitsCount = document.getElementById('site-visits-count');
         const zoomClassesCount = document.getElementById('zoom-classes-count');
         const maxVisitsText = document.getElementById('max-visits-text');
         const maxClassesText = document.getElementById('max-classes-text');
-        const visitButton = document.getElementById('visit-button');
-        const classButton = document.getElementById('class-button');
 
         /**
-         * Function to update the UI based on the current state (siteVisits, zoomClasses).
-         * It calculates the growth percentage and updates the progress bar and text.
+         * Function to update the UI for the spiritual growth meter.
          */
-        const updateUI = () => {
-            // Calculate the total percentage based on an average of both metrics
+        const updateGrowthMeter = () => {
             const siteScore = (siteVisits / maxVisits) * 50;
             const classScore = (zoomClasses / maxClasses) * 50;
             const growthPercentage = Math.min(siteScore + classScore, 100);
 
-            // Update the progress bar's width
             growthMeterBar.style.width = `${growthPercentage}%`;
-
-            // Update the percentage text
             growthPercentageText.textContent = `${Math.round(growthPercentage)}%`;
-
-            // Update the count displays
             siteVisitsCount.textContent = siteVisits;
             zoomClassesCount.textContent = zoomClasses;
 
-            // Change the color of the bar based on the percentage
             let newColorClass;
             if (growthPercentage < 40) {
                 newColorClass = 'bg-red-500';
@@ -201,64 +350,40 @@
             } else {
                 newColorClass = 'bg-green-500';
             }
-            // Remove previous color classes and add the new one
             growthMeterBar.classList.remove('bg-red-500', 'bg-yellow-500', 'bg-green-500');
             growthMeterBar.classList.add(newColorClass);
-            
-            // Disable buttons if the max counts are reached
-            visitButton.disabled = siteVisits >= maxVisits;
-            visitButton.classList.toggle('opacity-50', siteVisits >= maxVisits);
-            classButton.disabled = zoomClasses >= maxClasses;
-            classButton.classList.toggle('opacity-50', zoomClasses >= maxClasses);
         };
-
-        // Add event listeners to the buttons
-        visitButton.addEventListener('click', () => {
-            if (siteVisits < maxVisits) {
-                siteVisits++;
-                updateUI();
-            }
-        });
-
-        classButton.addEventListener('click', () => {
-            if (zoomClasses < maxClasses) {
-                zoomClasses++;
-                updateUI();
-            }
-        });
-
-        // Initial setup on page load
+        
+        // --- Event Handlers & Initialization ---
         window.onload = () => {
-            // Set the max values in the UI
+            // Set max values in the UI for the growth meter
             maxVisitsText.textContent = maxVisits;
             maxClassesText.textContent = maxClasses;
-            // Update the UI with the initial state
-            updateUI();
-        };
-        // Example script to dynamically update live sessions
-        const sessions = [
-            { title: "Yoga for Beginners", date: "2023-11-01", time: "10:00 AM - 11:00 AM", link: "https://zoom.us/j/1234567890" },
-            { title: "Meditation Masterclass", date: "2023-11-02", time: "2:00 PM - 3:00 PM", link: "https://zoom.us/j/0987654321" },
-            { title: "Prayer Session", date: "2023-11-03", time: "5:00 PM - 6:00 PM", link: "https://zoom.us/j/1122334455" }
-        ];
-        const sessionList = document.querySelector('.live-sessions-section ul');
-        sessions.forEach(session => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `<h3>${session.title}</h3>
-                                  <p>Date: ${session.date}</p>
-                                  <p>Time: ${session.time}</p>
-                                  <a href="${session.link}" target="_blank">Join Now</a>`;
-            sessionList.appendChild(listItem);
-        });
-        // Example script to embed YouTube video content
-        const videoContent = document.querySelector('.video-content iframe');
-        videoContent.src = "https://www.youtube.com/embed/your_video_id"; // Replace
-        // dynamically add the updated live class changes
-        videoContent.src += "?autoplay=1"; // Autoplay the video when the page loads
-        // Ensure the video is responsive
-        videoContent.style.width = "100%";
-        videoContent.style.height = "315px"; // Set a default height
-        videoContent.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"; // Allow fullscreen and other features
-        videoContent.allowFullscreen = true; // Allow fullscreen mode
+            updateGrowthMeter();
 
+            // Render content based on subscription
+            renderSessions();
+            renderYouTubeContent();
+            
+            // Re-render sessions every minute to check for live status
+            setInterval(renderSessions, 60000);
+        };
+        
+        // This is a simplified way to increment counts. In a real app,
+        // these would be updated from your backend when a user takes an action.
+        // For demonstration, these can be called from other pages or a user action.
+        function recordSiteVisit() {
+            if (siteVisits < maxVisits) {
+                siteVisits++;
+                updateGrowthMeter();
+            }
+        }
+        function recordClassAttended() {
+            if (zoomClasses < maxClasses) {
+                zoomClasses++;
+                updateGrowthMeter();
+            }
+        }
     </script>
+    </body>
+    </html>
