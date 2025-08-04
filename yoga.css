@@ -1,4 +1,4 @@
-/* Reset and Global */
+ /* Reset and Global */
 * {
     margin: 0;
     padding: 0;
@@ -224,29 +224,26 @@ nav li a:hover {
     transform: scale(1.05);
 }
 /* Footer */
+    
     .footer {
       background-color: #222;
       color: white;
-      padding: 20px 30px;
-      margin-top: auto;
+      padding: 20px;
+      text-align: center;
     }
 
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    .social-icons {
+      margin: 10px 0;
     }
 
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 15px;
-    }
-.social-media{
+    .social-icons a {
       color: white;
-}
+      margin: 0 10px;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
 
-    .popup-container {
-      display: none; /* Keep hidden until triggered */
+    .social-icons a:hover {
+      color: #f0db4f;
     }
 
