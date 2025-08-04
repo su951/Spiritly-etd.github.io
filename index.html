@@ -6,8 +6,8 @@
   <title>Your Spiritual Healing Website</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Font Awesome (CDN) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-oBw+oeKZkWbcg7UOpntZBpQ6GVOuo5z9f1AXpOc+z6UCCW+Gz4Q2EDJhXzXjkEzBmlw9YzZsX9x6QYFt2FhcnQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -54,8 +54,7 @@
       <button class="floating-btn right-btn" onclick="location.href='contact.html'">Reserve Your Space</button>
     </div>
 
-     <div class="page-wrapper">
-
+    <!-- LOGIN / SIGNUP POPUP -->
     <div id="login-popup" class="popup-container">
       <div class="form-container">
         <span class="close-btn">&times;</span>
@@ -82,20 +81,44 @@
         </form>
       </div>
     </div>
-  </div>
+
     <!-- FOOTER -->
     <footer class="footer">
-          <div>Follow us on:</div>
-    <div class="social-icons">
-      <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-    <div>&copy; 2025 Your Spiritual Site. All Rights Reserved.</div>
+      <div>Follow us on:</div>
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div>&copy; 2025 Your Spiritual Site. All Rights Reserved.</div>
     </footer>
+
   </div>
 
+  <!-- JavaScript for Tabs -->
+  <script>
+    const loginBtn = document.getElementById('login-btn');
+    const loginPopup = document.getElementById('login-popup');
+    const closeBtn = document.querySelector('.close-btn');
+    const tabs = document.querySelectorAll('.tab');
+    const forms = document.querySelectorAll('.form-content');
+
+    loginBtn.onclick = () => loginPopup.style.display = 'flex';
+    closeBtn.onclick = () => loginPopup.style.display = 'none';
+    window.onclick = (e) => {
+      if (e.target === loginPopup) loginPopup.style.display = 'none';
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        forms.forEach(f => f.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.form).classList.add('active');
+      });
+    });
+  </script>
+
+  <!-- Your custom JS -->
   <script src="index.js"></script>
-</body>
-</html>
