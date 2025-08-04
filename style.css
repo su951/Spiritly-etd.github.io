@@ -382,22 +382,16 @@ a:hover {
       padding: 20px 30px;
       margin-top: auto;
     }
-
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 15px;
-    }
-.social-media{
+  .social-icons a {
       color: white;
-}
+      margin: 0 10px;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
 
+    .social-icons a:hover {
+      color: #f0db4f;
+    }
     .popup-container {
       display: none; /* Keep hidden until triggered */
     }
