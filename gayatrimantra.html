@@ -1,367 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gayatri Mantra - The Universal Prayer</title>
-       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
-        
-        :root {
-            --primary-color: #ffaa00;
-            --secondary-color: #1a237e;
-            --light-color: #f5f5f5;
-            --dark-color: #333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f9f9f9;
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            background-blend-mode: overlay;
-            background-color: rgba(255, 255, 255, 0.9);
-            position: relative;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.3;
-            z-index: -1;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            font-family: 'Noto Serif Devanagari', serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        h2 {
-            font-family: 'Noto Serif Devanagari', serif;
-            color: var(--secondary-color);
-            margin: 20px 0;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--primary-color);
-        }
-        
-        .content-section {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-           header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #ffcc00;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gayatri Mantra - The Universal Prayer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
 
-header p {
-    font-size: 1.2rem;
-    color: #f0f0f0;
-}
+    :root {
+      --primary-color: #ffaa00;
+      --secondary-color: #1a237e;
+      --light-color: #f5f5f5;
+      --dark-color: #333;
+    }
 
-nav ul {
-    list-style: none;
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-nav ul li {
-    margin: 0 15px;
-    position: relative;
-}
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      background-attachment: fixed;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(255, 255, 255, 0.9);
+      position: relative;
+    }
 
-nav li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      z-index: -1;
+    }
 
-nav li a:hover {
-    color: #ffcc00;
-    background: rgba(255, 255, 255, 0.1);
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-/* Dropdown Styles */
-.dropdown {
-    position: relative;
-}
+    header {
+      text-align: center;
+      padding: 40px 0;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(40, 40, 40, 0.95);
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    z-index: 100;
-}
+    header h1 {
+      font-family: 'Noto Serif Devanagari', serif;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #ffcc00;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
-.dropdown-content a {
-    color: #f0f0f0;
-    padding: 12px 16px;
-    display: block;
-    transition: all 0.3s;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+    header p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+    }
 
-.dropdown-content a:hover {
-    background-color: rgba(255, 204, 0, 0.2);
-    color: #ffcc00;
-}
+    nav ul {
+      list-style: none;
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+    nav ul li {
+      margin: 0 15px;
+      position: relative;
+    }
 
-.sub-dropdown {
-    position: relative;
-}
+    nav li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
 
-.sub-dropdown-content {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: rgba(50, 50, 50, 0.95);
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(10px);
-    transition: all 0.3s ease;
-}
+    nav li a:hover {
+      color: #ffcc00;
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-.sub-dropdown:hover .sub-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-}
-        
-        .mantra-display {
-            background-color: #fff9e6;
-            padding: 30px;
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .sanskrit {
-            font-family: 'Noto Serif Devanagari', serif;
-            font-size: 2rem;
-            line-height: 1.8;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-        
-        .transliteration {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        
-        .meaning {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--dark-color);
-        }
-        
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .benefit-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .benefit-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            font-size: 0.9rem;
-        }
-        
-        .audio-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .audio-control:hover {
-            transform: scale(1.1);
-        }
-        
-        .audio-control i {
-            font-size: 24px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            background-color: var(--secondary-color);
-            color: white;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .sanskrit {
-                font-size: 1.5rem;
-            }
-            
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Animation classes */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    .dropdown-content, .sub-dropdown-content {
+      position: absolute;
+      background-color: rgba(40, 40, 40, 0.95);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
 
+    .dropdown:hover .dropdown-content,
+    .sub-dropdown:hover .sub-dropdown-content {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .sub-dropdown-content {
+      top: 0;
+      left: 100%;
+    }
+
+    .dropdown-content a,
+    .sub-dropdown-content a {
+      color: #f0f0f0;
+      padding: 12px 16px;
+      display: block;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown-content a:hover,
+    .sub-dropdown-content a:hover {
+      background-color: rgba(255, 204, 0, 0.2);
+      color: #ffcc00;
+    }
+
+    .content-section {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-family: 'Noto Serif Devanagari', serif;
+      color: var(--secondary-color);
+      margin: 20px 0;
+      font-size: 2rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    .mantra-display {
+      background-color: #fff9e6;
+      padding: 30px;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .sanskrit {
+      font-family: 'Noto Serif Devanagari', serif;
+      font-size: 2rem;
+      line-height: 1.8;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+
+    .transliteration, .meaning {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .benefit-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .benefit-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+
+    .audio-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .audio-control:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background-color: var(--secondary-color);
+      color: white;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .sanskrit {
+        font-size: 1.5rem;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-     <header>
+  <header>
     <nav>
       <ul>
         <li><a href="footprints.html">Footprints</a></li>
@@ -385,155 +336,68 @@ nav li a:hover {
         <li><a href="contact.html">Connect</a></li>
       </ul>
     </nav>
-          <h1>ॐ गायत्री मन्त्र</h1>
-            <p>The Supreme Vedic Mantra for Enlightenment</p>
-     </header>
-    
-        <div class="content-section fade-in">
-            <h2>The Gayatri Mantra</h2>
-            
-            <div class="mantra-display pulse">
-                <div class="sanskrit">
-                    ॐ भूर्भुवः स्वः<br>
-                    तत्सवितुर्वरेण्यं<br>
-                    भर्गो देवस्य धीमहि<br>
-                    धियो यो नः प्रचोदयात्॥
-                </div>
-                
-                <div class="transliteration">
-                    Om Bhur Bhuvaḥ Swaḥ<br>
-                    Tat Savitur Vareṇyaṃ<br>
-                    Bhargo Devasya Dhīmahi<br>
-                    Dhiyo Yo Naḥ Prachodayāt
-                </div>
-                
-                <div class="meaning">
-                    We meditate upon the divine effulgence of that adorable Sun of spiritual consciousness;<br>
-                    May it enlighten our intellect and guide us on the path of righteousness.
-                </div>
-            </div>
-        </div>
-        
-        <div class="content-section fade-in">
-            <h2>Significance of Gayatri Mantra</h2>
-            <p>The Gayatri Mantra is considered one of the most universal of all Hindu mantras, invoking the universal Brahman as the principle of knowledge and the illumination of the primordial Sun. It is often chanted during meditation and religious rituals to purify the mind and attain spiritual enlightenment.</p>
-            
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="photo3.jpg" alt="Golden morning sun rising over water with spiritual light rays">
-                    <div class="gallery-caption">Divine illumination of Gayatri</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photo2.jpg" alt="Traditional Indian pundit chanting mantras with holy fire ritual">
-                    <div class="gallery-caption">Sacred chanting ceremony</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="photo4.jpg" alt="Serene sunrise with yogi meditating in lotus pose silhouette">
-                    <div class="gallery-caption">Meditation and enlightenment</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="content-section fade-in">
-            <h2>Spiritual Benefits</h2>
-            <div class="benefits">
-                <div class="benefit-card">
-                    <h3>Mental Clarity</h3>
-                    <p>Regular chanting helps remove mental impurities and enhances focus and concentration.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Inner Peace</h3>
-                    <p>Generates harmonious vibrations that calm the mind and reduce stress.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Spiritual Growth</h3>
-                    <p>Awakens higher consciousness and connects the individual to cosmic energy.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Positive Energy</h3>
-                    <p>Creates a protective shield against negative energies in the environment.</p>
-                </div>
-            </div>
-        </div>
-        <div class="content-section fade-in">
-            <h2>How to Chant Correctly</h2>
-            <p>The Gayatri Mantra is most effective when chanted during the ambrosial hours (Sandhya) - dawn, noon, and dusk. Follow these steps for proper chanting:</p>
-            <ol style="margin-left: 20px; margin-top: 10px;">
-                <li>Sit comfortably in a clean, quiet place facing east</li>
-                <li>Close your eyes and take a few deep breaths</li>
-                <li>Chant maintaining proper pronunciation and rhythm</li>
-                <li>Visualize divine light illuminating your mind</li>
-                <li>Repeat at least 108 times using a mala (prayer beads)</li>
-            </ol>
-            
-            <div style="text-align: center; margin-top: 20px;">
-                <img src="photo1.jpg" alt="Proper sitting posture for meditation with hands in chin mudra holding rudraksha mala beads" style="border-radius: 8px;">
-            </div>
-        </div>
-        
-        <footer class="fade-in">
-            <p>May the Gayatri Mantra illuminate your path to enlightenment</p>
-            <p style="margin-top: 10px;">© 2025 Spiritly</p>
-        </footer>
+    <h1>ॐ गायत्री मन्त्र</h1>
+    <p>The Supreme Vedic Mantra for Enlightenment</p>
+  </header>
+
+  <div class="content-section fade-in">
+    <h2>The Gayatri Mantra</h2>
+    <div class="mantra-display pulse">
+      <div class="sanskrit">ॐ भूर्भुवः स्वः<br>तत्सवितुर्वरेण्यं<br>भर्गो देवस्य धीमहि<br>धियो यो नः प्रचोदयात्॥</div>
+      <div class="transliteration">Om Bhur Bhuvaḥ Swaḥ<br>Tat Savitur Vareṇyaṃ<br>Bhargo Devasya Dhīmahi<br>Dhiyo Yo Naḥ Prachodayāt</div>
+      <div class="meaning">We meditate upon the divine effulgence of that adorable Sun of spiritual consciousness;<br>May it enlighten our intellect and guide us on the path of righteousness.</div>
     </div>
-    
-    <!-- Audio Element (hidden, will autoplay) -->
-    <audio id="mantraAudio" loop>
-        <source src="gayatrimantra.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    
-    <div class="audio-control" id="audioToggle" onclick="toggleAudio()">
-        <i class="fas fa-volume-up"></i>
+  </div>
+
+  <div class="content-section fade-in">
+    <h2>Significance of Gayatri Mantra</h2>
+    <p>The Gayatri Mantra is considered one of the most universal of all Hindu mantras, invoking the universal Brahman as the principle of knowledge and the illumination of the primordial Sun.</p>
+    <div class="image-gallery">
+      <div class="gallery-item"><img src="photo3.jpg" alt=""><div class="gallery-caption">Divine illumination of Gayatri</div></div>
+      <div class="gallery-item"><img src="photo2.jpg" alt=""><div class="gallery-caption">Sacred chanting ceremony</div></div>
+      <div class="gallery-item"><img src="photo4.jpg" alt=""><div class="gallery-caption">Meditation and enlightenment</div></div>
     </div>
-    <script>
-        // Auto-play the mantra audio
-        window.onload = function() {
-            const audio = document.getElementById('mantraAudio');
-            audio.volume = 0.4; // Set moderate volume
-            const playPromise = audio.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    // Auto-play was prevented, show button to enable
-                    document.getElementById('audioToggle').style.display = 'flex';
-                });
-            }
-        };
-        
-        // Toggle audio play/pause
-        function toggleAudio() {
-            const audio = document.getElementById('mantraAudio');
-            const toggleBtn = document.getElementById('audioToggle');
-            
-            if (audio.paused) {
-                audio.play();
-                toggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
-            } else {
-                 audio.pause();
-                toggleBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            }
-        }
-        
-        // Fade in elements as page scrolls
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElems = document.querySelectorAll('.fade-in');
-            
-            const fadeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                    }
-                      entry.target.style.opacity = 1;
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElems.forEach(elem => {
-                elem.style.opacity = 0;
-                fadeObserver.observe(elem);
-            });
-        });
-    </script>
+  </div>
+
+  <footer class="fade-in">
+    <p>May the Gayatri Mantra illuminate your path to enlightenment</p>
+    <p style="margin-top: 10px;">© 2025 Spiritly</p>
+  </footer>
+
+  <!-- Audio Element -->
+  <audio id="mantraAudio" autoplay muted loop>
+    <source src="gayatrimantra.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Audio Control -->
+  <div class="audio-control" id="audioToggle" onclick="toggleAudio()">
+    <i class="fas fa-volume-up"></i>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    window.onload = function () {
+      const audio = document.getElementById('mantraAudio');
+      audio.volume = 0.4;
+      document.body.addEventListener('click', function playAudioOnce() {
+        audio.muted = false;
+        audio.play().catch(err => console.warn('Playback error:', err));
+        document.body.removeEventListener('click', playAudioOnce);
+      });
+    };
+
+    function toggleAudio() {
+      const audio = document.getElementById('mantraAudio');
+      const toggleBtn = document.getElementById('audioToggle');
+      if (audio.paused) {
+        audio.play();
+        toggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+      } else {
+        audio.pause();
+        toggleBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+      }
+    }
+  </script>
 </body>
 </html>
