@@ -1,4 +1,11 @@
-        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayatri Mantra - The Universal Prayer</title>
+</head>
+<body>
         <div class="content-section fade-in">
             <h2>How to Chant Correctly</h2>
             <p>The Gayatri Mantra is most effective when chanted during the ambrosial hours (Sandhya) - dawn, noon, and dusk. Follow these steps for proper chanting:</p>
@@ -30,3 +37,28 @@
     <div class="audio-control" id="audioToggle" onclick="toggleAudio()">
         <i class="fas fa-volume-up"></i>
     </div>
+    <script>
+        // Auto-play the mantra audio
+        window.onload = function() {
+            const audio = document.getElementById('mantraAudio');
+            audio.volume = 0.4; // Set moderate volume
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Auto-play was prevented, show button to enable
+                    document.getElementById('audioToggle').style.display = 'flex';
+                });
+            }
+        };
+        
+        // Toggle audio play/pause
+        function toggleAudio() {
+            const audio = document.getElementById('mantraAudio');
+            const toggleBtn = document.getElementById('audioToggle');
+            
+            if (audio.paused) {
+                audio.play();
+                toggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+
