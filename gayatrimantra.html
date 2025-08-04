@@ -94,6 +94,109 @@
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
+           header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav li a:hover {
+    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(40, 40, 40, 0.95);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.dropdown-content a {
+    color: #f0f0f0;
+    padding: 12px 16px;
+    display: block;
+    transition: all 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+    color: #ffcc00;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: rgba(50, 50, 50, 0.95);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
         
         .mantra-display {
             background-color: #fff9e6;
@@ -288,6 +391,51 @@
             <p>The Supreme Vedic Mantra for Enlightenment</p>
      </header>
                         <div class="gallery-caption">Sacred chanting ceremony</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400" alt="Serene sunrise with yogi meditating in lotus pose silhouette">
+                    <div class="gallery-caption">Meditation and enlightenment</div>
+                </div>
+            </div>
+</div>
+    
+        <div class="content-section fade-in">
+            <h2>The Gayatri Mantra</h2>
+            
+            <div class="mantra-display pulse">
+                <div class="sanskrit">
+                    ॐ भूर्भुवः स्वः<br>
+                    तत्सवितुर्वरेण्यं<br>
+                    भर्गो देवस्य धीमहि<br>
+                    धियो यो नः प्रचोदयात्॥
+                </div>
+                
+                <div class="transliteration">
+                    Om Bhur Bhuvaḥ Swaḥ<br>
+                    Tat Savitur Vareṇyaṃ<br>
+                    Bhargo Devasya Dhīmahi<br>
+                    Dhiyo Yo Naḥ Prachodayāt
+                </div>
+                
+                <div class="meaning">
+                    We meditate upon the divine effulgence of that adorable Sun of spiritual consciousness;<br>
+                    May it enlighten our intellect and guide us on the path of righteousness.
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section fade-in">
+            <h2>Significance of Gayatri Mantra</h2>
+            <p>The Gayatri Mantra is considered one of the most universal of all Hindu mantras, invoking the universal Brahman as the principle of knowledge and the illumination of the primordial Sun. It is often chanted during meditation and religious rituals to purify the mind and attain spiritual enlightenment.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400" alt="Golden morning sun rising over water with spiritual light rays">
+                    <div class="gallery-caption">Divine illumination of Gayatri</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400" alt="Traditional Indian pundit chanting mantras with holy fire ritual">
+                    <div class="gallery-caption">Sacred chanting ceremony</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://placehold.co/600x400" alt="Serene sunrise with yogi meditating in lotus pose silhouette">
