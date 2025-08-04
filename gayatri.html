@@ -61,4 +61,30 @@
                 audio.play();
                 toggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
             } else {
-
+                 audio.pause();
+                toggleBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        }
+        
+        // Fade in elements as page scrolls
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                      entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElems.forEach(elem => {
+                elem.style.opacity = 0;
+                fadeObserver.observe(elem);
+            });
+        });
+    </script>
+</body>
+</html>
