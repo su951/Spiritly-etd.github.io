@@ -303,14 +303,18 @@ footer a {
     height: 100%;
     opacity: 0.1;
 }
-.social-links a {
-    margin: 0 10px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-}
-.social-links{ 
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
+ .social-icons {
+      margin: 15px 0;
+    }
+
+    .social-icons a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #f0c330;
+    }
