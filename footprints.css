@@ -109,15 +109,7 @@ a:hover {
     visibility: visible;
     transform: translateX(0);
 }
-/* Background Image */
-body {
-    background-color: #f0f0f0;
-    background-image: url("about.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 
 /* Content Section */
 .about-container {
@@ -127,7 +119,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('footprints.jpg') no-repeat center center/cover;
 }
 
 .about-container::before {
@@ -369,7 +360,7 @@ body {
     footer {
       text-align: center;
       padding: 30px 0;
-      background-color: var(--secondary-color);
+      background-color: #ae82b3;
       color: white;
       border-radius: 10px;
       margin-top: 30px;
