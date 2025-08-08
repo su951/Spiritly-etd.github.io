@@ -1,10 +1,10 @@
- * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 html, body {
- font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
   height: 100%;
   margin: 0;
   display: flex;
@@ -13,8 +13,7 @@ html, body {
     .page-wrapper {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-            flex: 1;
+      flex: 1; /* This tells the wrapper to grow and fill available space, pushing the footer down. */
     }
 
     nav ul {
@@ -173,7 +172,7 @@ html, body {
       border: none;
       cursor: pointer;
     }
- .social-icons a {
+  .social-icons a {
       color: white;
       margin: 0 10px;
       font-size: 24px;
@@ -187,10 +186,9 @@ html, body {
     footer {
       text-align: center;
       padding: 30px 0;
-      background-color: #d2691e;
+      background-color: grey;
       color: white;
       border-radius: 10px;
-      margin-top: 30px;
     }
 
     .fade-in {
