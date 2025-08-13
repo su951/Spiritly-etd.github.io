@@ -1,8 +1,3 @@
-  // Import the necessary functions from the Firebase modular SDK
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-  import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-
   // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
@@ -13,11 +8,23 @@
     appId: "1:160769508942:web:d447c0a8e102a441bce51f",
     measurementId: "G-7L4XXDTS4C"
   };
-
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
+  document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Firebase services
+      const app = firebase.initializeApp(firebaseConfig);
+      const analytics = firebase.analytics(app);
+      const db = firebase.firestore();
+      const storage = firebase.storage(app);
+      
+ // Get form element
+      const contactForm = document.getElementById('contactForm');
+          if (!contactForm) return; // Exit if form doesn't exist
+  
+      // Single event listener for form submission
+      contactForm.addEventListener('submit', async function(event) {
+          event.preventDefault();
+          
 
   document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
@@ -87,4 +94,12 @@
       const whatsappGroupLink = "https://chat.whatsapp.com/your-group-link"; // Replace with your link
       window.location.href = whatsappGroupLink;
     }
+  });
+  // Allow form submission with Enter key
+      contactForm.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter' && !contactForm.querySelector('button[type="submit"]').disabled) {
+              event.preventDefault(); // Prevent default form submission
+              contactForm.dispatchEvent(new Event('submit')); // Trigger the submit event
+          }
+      });
   });
