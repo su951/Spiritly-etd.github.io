@@ -1,15 +1,26 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
-  authDomain: "spiritly-ae536.firebaseapp.com",
-  projectId: "spiritly-ae536",
-  storageBucket: "spiritly-ae536.firebasestorage.app",
-  messagingSenderId: "160769508942",
-  appId: "1:160769508942:web:d447c0a8e102a441bce51f",
-  measurementId: "G-7L4XXDTS4C"
-};
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
+    authDomain: "spiritly-ae536.firebaseapp.com",
+    projectId: "spiritly-ae536",
+    storageBucket: "spiritly-ae536.firebasestorage.app",
+    messagingSenderId: "160769508942",
+    appId: "1:160769508942:web:862821c14fa564babce51f",
+    measurementId: "G-VMEC3LZKJ9"
+  };
 
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
