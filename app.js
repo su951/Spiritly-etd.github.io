@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       // Log a success message to the console
-      console.log("Document successfully written with ID: ", kTexvpLoP0Cem5yYxi19);
+      console.log("Document successfully written with ID: ", docRef.id);
       
       // Analytics (using modular function)
       logEvent(analytics, 'contact_form_submitted');
@@ -68,8 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
       formMessage.textContent = "🙏 Thank you! Your message has been received. We'll contact you soon.";
       contactForm.reset();
 
-      // After successful submission, redirect to WhatsApp
-      redirectToWhatsApp();
+     
 
     } catch (e) {
       console.error("Error adding document: ", e);
@@ -81,6 +80,4 @@ document.addEventListener('DOMContentLoaded', function() {
       submitBtn.textContent = 'Send Your Message ✨';
     }
   });
-
- 
 });
