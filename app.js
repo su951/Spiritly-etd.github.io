@@ -1,3 +1,7 @@
+// Import Firebase modules from CDN (works in GitHub-hosted pages)
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
@@ -47,37 +51,35 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    try {
-      // Save to Firestore using modular functions
-      const docRef = await addDoc(collection(db, 'contactusp'), {
-        name: name,
-        email: email,
-        topic: topic,
-        message: message,
+ try {
+      // Save to Firestore
+      await addDoc(collection(db, 'contactusp'), {
+        ...formData,
         timestamp: serverTimestamp()
       });
 
-      // Log a success message to the console
-      console.log("Document successfully written with ID: ", docRef.id);
-      
-      // Analytics (using modular function)
-      logEvent(analytics, 'contact_form_submitted');
-
-      // Success action
-      formMessage.style.color = 'green';
-      formMessage.textContent = "🙏 Thank you! Your message has been received. We'll contact you soon.";
+      //  // Log event and show success
+      logEvent(analytics, 'contact_form_submission');
+      showMessage(formMessage, 'Thank you! Your message has been sent.', 'success');
       contactForm.reset();
-
-     
-
-    } catch (e) {
-      console.error("Error adding document: ", e);
-      formMessage.style.color = 'red';
-      formMessage.textContent = 'An error occurred. Please try again later.';
+      
+  
+       } catch (error) {
+      console.error('Submission error:', error);
+      showMessage(formMessage, 'Failed to send message. Please try again.', 'error');
     } finally {
-      // Reset UI state
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Your Message ✨';
+      submitBtn.textContent = originalBtnText;
     }
   });
+
+
+  
+  // Helper function for showing messages
+  function showMessage(element, text, type) {
+    if (!element) return;
+    element.textContent = text;
+    element.style.color = type === 'error' ? 'red' : 'green';
+    element.style.display = 'block';
+  }
 });
