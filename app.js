@@ -13,11 +13,7 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
+  const db = getFirestore(app);
 
 // Use a single DOMContentLoaded listener for all your code
 document.addEventListener('DOMContentLoaded', function() {
