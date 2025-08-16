@@ -1,11 +1,4 @@
-
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
@@ -20,7 +13,7 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-</script>
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -69,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       // Log a success message to the console
-      console.log("Document successfully written with ID: ", docRef.id);
+      console.log("Document successfully written with ID: ", kTexvpLoP0Cem5yYxi19);
       
       // Analytics (using modular function)
       logEvent(analytics, 'contact_form_submitted');
@@ -93,9 +86,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Helper function to redirect to WhatsApp
-  function redirectToWhatsApp() {
-    const whatsappGroupLink = "https://chat.whatsapp.com/your-group-link"; // Replace with your link
-    window.location.href = whatsappGroupLink;
-  }
+ 
 });
