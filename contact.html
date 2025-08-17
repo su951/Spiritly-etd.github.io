@@ -169,7 +169,45 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const db = getFirestore(app);
+// 🔹 2. Setup reCAPTCHA
+  window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+    'size': 'invisible',
+    'callback': (response) => {
+      console.log("reCAPTCHA verified");
+    }
+  });
 
+  // 🔹 3. Send OTP
+  async function sendOTP(phoneNumber) {
+    try {
+      const appVerifier = window.recaptchaVerifier;
+      const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      window.confirmationResult = confirmationResult;
+      alert("OTP sent successfully!");
+    } catch (error) {
+      console.error("Error during signInWithPhoneNumber", error);
+      alert("Failed to send OTP: " + error.message);
+    }
+  }
+
+  // 🔹 4. Verify OTP & Save to Firestore
+  async function verifyOTP(code) {
+    try {
+      const result = await window.confirmationResult.confirm(code);
+      const user = result.user;
+
+      // Save phone number to Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        phoneNumber: user.phoneNumber,
+        createdAt: new Date()
+      });
+
+      alert("User authenticated & saved successfully!");
+    } catch (error) {
+      console.error("Error verifying OTP", error);
+      alert("OTP verification failed: " + error.message);
+    }
+  }
         document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
@@ -243,36 +281,11 @@
                 element.style.display = 'block';
             }
         });
-FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            user.sendEmailVerification()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            showMessage(formMessage, "verification mail has been sent.", 'kindly check on your email');
-                        } else {
-                            // Error sending email.
-                          showMessage(formMessage, "error sending email.", 'contact us on our whatsapp or contact number.');
-                        }
-                    }
-                });
-        }
-      const phoneNumber = getPhoneNumberFromUserInput();
-const appVerifier = window.recaptchaVerifier;
-firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-    .then((confirmationResult) => {
-      // SMS sent. Prompt user to type the code from the message, then sign the
-      // user in with confirmationResult.confirm(code).
-      window.confirmationResult = confirmationResult;
-      // ...
-    }).catch((error) => {
-      // Error; SMS not sent
-      // ...
-    });
+
     </script>
 </body>
 </html>
+
 
 
 
