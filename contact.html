@@ -3,298 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact Us - Spiritual Healing</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* Base Styles */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #fff3e0);
-      color: #333;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: #ffffffcc;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s ease;
-    }
-
-    .container:hover {
-      transform: scale(1.01);
-    }
-
-    h2 {
-      text-align: center;
-      color: #4db6ac;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    p.subtitle {
-      text-align: center;
-      color: #777;
-      margin-bottom: 25px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #555;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      transition: border-color 0.3s ease;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: #4db6ac;
-      outline: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background-color: #4db6ac;
-      color: white;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #00897b;
-    }
-
-    .message {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #888;
-    }
-
-    /* Optional animation */
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    .container {
-      animation: fadeIn 1s ease-in-out;
-    }
-  </style>
 </head>
 <body>
+  <h2>Contact Us</h2>
+  
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Full Name" required><br>
+    <input type="email" id="email" placeholder="Email Address" required><br>
+    <input type="tel" id="phone" placeholder="+91XXXXXXXXXX" required><br>
+    <textarea id="message" placeholder="Your Message" required></textarea><br>
 
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p class="subtitle">Feel free to reach out for guidance, healing sessions, or spiritual advice</p>
+    <!-- OTP -->
+    <div id="recaptcha-container"></div>
+    <input type="text" id="otp" placeholder="Enter OTP">
+    <button type="button" onclick="sendOTP()">Send OTP</button>
+    <button type="button" onclick="verifyOTP()">Verify OTP</button>
 
-    <form id="contactForm">
-      <div class="form-group">
-        <label for="name">Full Name *</label>
-        <input type="text" id="name" placeholder="Your full name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email Address *</label>
-        <input type="email" id="email" placeholder="example@domain.com" required>
-      </div>
-      <div class="form-group">
-        <label for="topic">Type of Healing Needed</label>
-        <select id="topic">
-          <option value="">-- Select an option --</option>
-          <option>Emotional Healing</option>
-          <option>Stress Relief</option>
-          <option>Chakra Balancing</option>
-          <option>Relationship Guidance</option>
-          <option>Past Life Regression</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="message">Your Message *</label>
-        <textarea id="message" placeholder="Describe your concern or how we can help..." rows="5" required></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit">Send Your Message ✨</button>
-      </div>
-    </form>
+    <button type="submit">Submit</button>
+  </form>
 
-    <div class="message" id="formMessage"></div>
-    <div class="footer-note">🕉️ We are here to help you heal and grow spiritually 🌿</div>
-  </div>
+  <p id="formMessage"></p>
 
-   <!-- Firebase Import Scripts -->
-    <script type="module">
-        // Import Firebase modules from CDN
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js';
-        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
-            authDomain: "spiritly-ae536.firebaseapp.com",
-            projectId: "spiritly-ae536",
-            storageBucket: "spiritly-ae536.appspot.com",
-            messagingSenderId: "160769508942",
-            appId: "1:160769508942:web:862821c14fa564babce51f",
-            measurementId: "G-VMEC3LZKJ9"
-        };
+  <script>
+    // 🔹 Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
+      authDomain: "spiritly-ae536.firebaseapp.com",
+      projectId: "spiritly-ae536",
+      storageBucket: "spiritly-ae536.appspot.com",
+      messagingSenderId: "160769508942",
+      appId: "1:160769508942:web:862821c14fa564babce51f",
+      measurementId: "G-VMEC3LZKJ9"
+    };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-// 🔹 2. Setup reCAPTCHA
-  window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
-    'size': 'invisible',
-    'callback': (response) => {
-      console.log("reCAPTCHA verified");
-    }
-  });
+    // 🔹 Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
 
-  // 🔹 3. Send OTP
-  async function sendOTP(phoneNumber) {
-    try {
+    // 🔹 Setup Recaptcha
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+      'size': 'invisible'
+    });
+
+    // 🔹 Send OTP
+    function sendOTP() {
+      const phoneNumber = document.getElementById("phone").value;
       const appVerifier = window.recaptchaVerifier;
-      const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
-      window.confirmationResult = confirmationResult;
-      alert("OTP sent successfully!");
-    } catch (error) {
-      console.error("Error during signInWithPhoneNumber", error);
-      alert("Failed to send OTP: " + error.message);
-    }
-  }
 
-  // 🔹 4. Verify OTP & Save to Firestore
-  async function verifyOTP(code) {
-    try {
-      const result = await window.confirmationResult.confirm(code);
-      const user = result.user;
-
-      // Save phone number to Firestore
-      await setDoc(doc(db, "users", user.uid), {
-        phoneNumber: user.phoneNumber,
-        createdAt: new Date()
-      });
-
-      alert("User authenticated & saved successfully!");
-    } catch (error) {
-      console.error("Error verifying OTP", error);
-      alert("OTP verification failed: " + error.message);
-    }
-  }
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const formMessage = document.getElementById('formMessage');
-
-            if (!contactForm) {
-                console.error('Contact form not found.');
-                return;
-            }
-
-            contactForm.addEventListener('submit', async function(event) {
-                event.preventDefault();
-
-                // Get form values
-                const name = contactForm['name'].value;
-                const email = contactForm['email'].value;
-                const topic = contactForm['topic'].value;
-                const message = contactForm['message'].value;
-                
-                // Basic validation
-                if (!name || !email || !message) {
-                    showMessage(formMessage, 'Please fill out all required fields.', 'error');
-                    return;
-                }
-
-                // Email validation
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    showMessage(formMessage, 'Please enter a valid email address.', 'error');
-                    return;
-                }
-
-                // UI Loading state
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalBtnText = submitBtn.textContent;
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-
-                try {
-                    // Save to Firestore
-                    const docRef = await addDoc(collection(db, 'contactusp'), {
-                        name: name,
-                        email: email,
-                        topic: topic,
-                        message: message,
-                        timestamp: serverTimestamp()
-                    });
-
-                    console.log("Document successfully written with ID: ", docRef.id);
-                    
-                    // Analytics event
-                    logEvent(analytics, 'contact_form_submitted');
-
-                    // Success action
-                    showMessage(formMessage, "🙏 Thank you! Your message has been received. We'll contact you soon.", 'success');
-                    contactForm.reset();
-
-                } catch (error) {
-                    console.error("Error adding document: ", error);
-                    showMessage(formMessage, 'An error occurred. Please try again later.', 'error');
-                } finally {
-                    // Reset UI state
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                }
-            });
-
-            // Helper function for showing messages
-            function showMessage(element, text, type) {
-                if (!element) return;
-                element.textContent = text;
-                element.style.color = type === 'error' ? 'red' : 'green';
-                element.style.display = 'block';
-            }
+      auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+        .then((confirmationResult) => {
+          window.confirmationResult = confirmationResult;
+          alert("OTP sent!");
+        }).catch((error) => {
+          alert("Error: " + error.message);
         });
+    }
 
-    </script>
+    // 🔹 Verify OTP
+    function verifyOTP() {
+      const code = document.getElementById("otp").value;
+      window.confirmationResult.confirm(code).then((result) => {
+        const user = result.user;
+        db.collection("users").doc(user.uid).set({
+          phoneNumber: user.phoneNumber,
+          createdAt: new Date()
+        });
+        alert("Phone verified!");
+      }).catch((error) => {
+        alert("OTP failed: " + error.message);
+      });
+    }
+
+    // 🔹 Contact Form Save
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      try {
+        await db.collection("contactusp").add({
+          name,
+          email,
+          message,
+          timestamp: new Date()
+        });
+        document.getElementById("formMessage").textContent = "✅ Message Sent!";
+        document.getElementById("contactForm").reset();
+      } catch (err) {
+        document.getElementById("formMessage").textContent = "❌ Error: " + err.message;
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
