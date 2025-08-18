@@ -117,7 +117,16 @@ form {
     <h2>Contact Us</h2>
     
     <input type="text" id="name" placeholder="Full Name" required>
-    <input type="email" id="email" placeholder="Email Address" required>
+       <input type="email" id="email" placeholder="Enter your email" required>
+      <input type="password" id="password" placeholder="Enter your password" required>
+      <button type="submit">Register & Send Verification</button>
+   
+
+    <button id="checkVerifyBtn">Check Verification Status</button>
+    <button id="resendBtn">Resend Verification Email</button>
+
+    <p id="message"></p>
+  
     <input type="tel" id="phone" placeholder="+91XXXXXXXXXX" required>
     <textarea id="message" placeholder="Your Message" required></textarea>
 
@@ -209,7 +218,33 @@ form {
         alert("❌ OTP verification failed: " + error.message);
       });
   }
+  // Send verification email
+          user.sendEmailVerification()
+            .then(() => {
+              document.getElementById("message").textContent =
+                "✅ Verification email sent to " + email + ". Please check your inbox.";
+            })
+            .catch((error) => {
+              document.getElementById("message").textContent =
+                "❌ Error sending email: " + error.message;
+            });
+        })
+        .catch((error) => {
+          document.getElementById("message").textContent =
+            "❌ Error: " + error.message;
+        });
+    });
 
+    // 🔹 Check if email is verified
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        if (user.emailVerified) {
+          console.log("✅ Email verified:", user.email);
+        } else {
+          console.log("⚠️ Email not verified yet.");
+        }
+      }
+    });
   // 🔹 Save Contact Form Data
   document.getElementById("contactForm").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -237,6 +272,7 @@ form {
   </script>
 </body>
 </html>
+
 
 
 
