@@ -4,6 +4,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+ .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 55px;
+      width: 55px;
+    }
 
 body {
     font-family: 'Segoe UI', sans-serif;
