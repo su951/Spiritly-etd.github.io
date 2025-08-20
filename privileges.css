@@ -7,6 +7,16 @@
     --dark-text: #333333;
     --light-text: #5a6478;
 }
+  .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
 
 * {
     margin: 0;
