@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privileges</title>
-     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Privileges - Your Spiritual Healing Website</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="privileges.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="logo">Spiritly</div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
                 <li><a href="footprints.html">Footprints</a></li>
                 <li class="dropdown">
                     <a href="privileges.html">Privileges</a>
@@ -29,228 +33,257 @@
                         </div>
                     </div>
                 </li>
-               
                 <li><a href="testimonials.html">Soul Stories</a></li>
                 <li><a href="contact.html">Connect</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-overlay">
-            <h1 class="hero-heading">Discover the Privileges of Spiritual Healing</h1>
-        </div>
-    </section>
-   <!-- Services Section -->
-    <main class="privileges-main">
+    <main>
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <h1 class="hero-heading">Discover the Privileges of Spiritual Healing</h1>
+            </div>
+        </section>
+
         <section class="services-section">
-            <div class="service-card">
-                <img src="yoga.jpg" alt="Yoga" class="card-img">
-                <h3>Yoga</h3>
-                <p>Balance body and soul with ancient asanas designed to strengthen and soothe.</p>
-                <a href="yoga.html">Explore</a>
-                  <a href="payment.html">Book Now</a>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Offerings</h2>
+                    <p>Holistic practices to harmonize your body, mind, and spirit.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="yoga.jpg" alt="Woman doing yoga" class="card-img">
+                        <h3>Yoga</h3>
+                        <p>Balance body and soul with ancient asanas designed to strengthen and soothe.</p>
+                        <div class="card-links">
+                            <a href="yoga.html" class="details-btn">Explore</a>
+                            <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="meditation.png" alt="Person meditating peacefully" class="card-img">
+                        <h3>Meditation</h3>
+                        <p>Calm your mind and find inner stillness through guided meditation practices.</p>
+                        <div class="card-links">
+                            <a href="meditation.html" class="details-btn">Explore</a>
+                            <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="prayer.jpg" alt="Hands in prayer" class="card-img">
+                        <h3>Prayer</h3>
+                        <p>Reconnect with the divine through meaningful and soulful prayers.</p>
+                        <div class="card-links">
+                            <a href="prayer.html" class="details-btn">Explore</a>
+                            <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="mantra.jpg" alt="Symbol for mantra chanting" class="card-img">
+                        <h3>Mantra Chanting</h3>
+                        <p>Immerse yourself in healing vibrations of ancient mantras to restore peace.</p>
+                        <div class="card-links">
+                            <a href="mantra.html" class="details-btn">Explore</a>
+                            <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="Spiritual-healing.jpg" alt="Spiritual Healing energy" class="card-img">
+                        <h3>Spiritual Healing</h3>
+                        <p>Experience holistic healing that nurtures your mind, body, and spirit.</p>
+                        <div class="card-links">
+                            <a href="#" class="details-btn open-popup-btn">Details</a>
+                            <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="Detoxndclean.jpg" alt="Herbs for detox therapies" class="card-img">
+                        <h3>Detox & Cleansing</h3>
+                        <p>Restore your energy balance and promote wellness through cleansing techniques.</p>
+                        <div class="card-links">
+                           <a href="#" class="details-btn open-popup-btn">Details</a>
+                           <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="spiritual-guidance.jpg" alt="Compass for spiritual guidance" class="card-img">
+                        <h3>Spiritual Guidance</h3>
+                        <p>Receive personalized guidance to navigate your life's journey with clarity.</p>
+                        <div class="card-links">
+                            <a href="#" class="details-btn open-popup-btn">Details</a>
+                            <a href="payment.html" class="book-btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="service-card">
-                <img src="meditation.png" alt="Meditation" class="card-img">
-                <h3>Meditation</h3>
-                <p>Calm your mind and find inner stillness through guided meditation practices.</p>
-                <a href="meditation.html">Explore</a>
-                  <a href="payment.html">Book Now</a>
-            </div>
-            <div class="service-card">
-                <img src="prayer.jpg" alt="Prayer" class="card-img">
-                <h3>Prayer</h3>
-                <p>Reconnect with the divine through meaningful and soulful prayers.</p>
-                <a href="prayer.html">Explore</a>
-                  <a href="payment.html">Book Now</a>
-            </div>
-            <div class="service-card">
-                <img src="mantra.jpg" alt="Mantra Chanting" class="card-img">
-                <h3>Mantra Chanting</h3>
-                <p>Immerse yourself in the healing vibrations of ancient mantras to restore peace and clarity.</p>
-                <a href="mantra.html">Explore</a>
-                 <a href="payment.html">Book Now</a>
-            </div>
-            <!-- Service cards for specific mantras -->
-           
-            <!-- Additional service cards -->
-            <div class="service-card">
-                <img src="Spiritual-healing.jpg" alt="Spiritual Healing" class="card-img">
-                <h3>Spiritual Healing</h3>
-                <p>Experience holistic healing that nurtures your mind, body, and spirit.</p>
-                 <a href="#" id="openPopupBtn" class="details-btn">Explore</a>
-                  <a href="payment.html">Book Now</a>
-            </div>
-            <div class="service-card">
-                <img src="Detoxndclean.jpg" alt="Energy Healing" class="card-img">
-                <h3>Detox And Cleaning Therapies</h3>
-                <p>Restore your energy balance and promote overall wellness through Detox and Cleaning techniques.</p>
-               <a href="#" id="openPopupBtn" class="details-btn">Explore</a>
-                <a href="paymentgateway.html">Book Now</a>
-            </div>
-          
-            <!--personal spiritual guidance-->
-            <div class="service-card">
-                <img src="spiritual-guidance.jpg" alt="Spiritual Guidance" class="card-img">
-                <h3>Personal Spiritual Guidance</h3>
-                <p>Receive personalized spiritual guidance to navigate your life's journey with clarity.</p>
-                 <a href="#" id="openPopupBtn" class="details-btn">Explore</a>
-                  <a href="payment.html">Book Now</a>
+        </section>
+
+        <section class="promo-section">
+            <div class="container promo-container">
+                <div class="promo-image">
+                    <img src="healing.jpg" alt="Hands holding a glowing light, symbolizing healing">
+                </div>
+                <div class="promo-content">
+                    <h2>Exclusive Offer for You</h2>
+                    <p>Get <strong>20% off</strong> on your first spiritual healing session with us! Discover peace and wellness like never before.</p>
+                    <div class="promo-buttons">
+                        <a href="contact.html" class="promo-btn">Book Your First Session</a>
+                        <a href="#" class="details-btn open-popup-btn">View All Offerings</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <!-- Promo Section -->
- <section class="promo-section">
-        <div class="promo-image">
-            <img src="healing.jpg" alt="healing">
-        </div>
-        <div class="promo-content">
-            <h2>Exclusive Offer for You</h2>
-            <p>Get <strong>20% off</strong> on your first spiritual healing session with us! Discover peace and wellness like never before.</p>
-            <a href="contact.html" class="promo-btn">Book Your First Session</a>
-            <a href="#" id="openPopupBtn" class="details-btn">View All Offerings</a>
-        </div>
-    </section>
-
-<div id="sessionPopup" class="popup">
-    <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <div class="popup-header">
-            <h2>🌺 Welcome to Spiritly</h2>
-            <p>A Holistic Healing & Wellness Hub to harmonize your body, mind, and soul.</p>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-item">
-                <button class="accordion-header">🧘‍♀️ Yoga Sessions & Pricing</button>
-                <div class="accordion-body">
-                    <p><strong>Timings:</strong> Monday to Friday – 1 hour/day (Total: 20 hours/month)</p>
-                    <p><strong>Monthly Charge:</strong> <span class="price-tag">₹1000 per person</span></p>
-                    <div class="special-offer">
-                        <p>Special Offer: 3-Month Advance Booking<br>
-                        Pay ₹3000 and get ₹500 discount (Pay only ₹2500!)</p>
-                    </div>
-
-                    <h4>🎵 Included Free Add-ons:</h4>
-                    <ul>
-                        <li>💫 <strong>LIVE Maha Mrityunjay Mantra Hawan:</strong> Healing fire ceremony.</li>
-                        <li>🕉️ <strong>Mantra Chanting Sessions:</strong> Durga, Gayatri & Maha Mrityunjay.</li>
-                        <li>🙏 <strong>Hanuman Chalisa Group Session:</strong> Daily 8:00 PM – 9:00 PM.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">🌿 Therapeutic & Healing Services</button>
-                <div class="accordion-body">
-                    <p><strong>Fee:</strong> <span class="price-tag">₹500/month per therapy</span> (Includes 4 weekly sessions)</p>
-                    <ul>
-                        <li>🎵 Music Therapy</li>
-                        <li>🌬️ Breathing Therapy (Pranayama)</li>
-                        <li>🧘 Yog Nidra (Guided Deep Relaxation)</li>
-                        <li>💖 Emotional Healing & Trauma Release</li>
-                        <li>😌 Stress Relief Sessions</li>
-                        <li>💎 Chakra Balancing</li>
-                        <li>😄 Relationship Guidance (with Humor!)</li>
-                        <li>🕰️ Past Life Regression</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">🔄 Detox & Specialized Therapies</button>
-                <div class="accordion-body">
-                    <h4>🔄 Detox & Cleansing (Shuddhi Kriyas)</h4>
-                    <p><strong>Fee:</strong> <span class="price-tag">₹500/month per therapy</span></p>
-                    <ul>
-                        <li><strong>Shank Prakshalana / Varisara Dhauti</strong></li>
-                        <li><strong>Kunjal Kriya / Vaman Dhauti</strong></li>
-                    </ul>
-                    <h4>🩺 Specialized Condition Relief Therapies</h4>
-                    <p><strong>Fee:</strong> <span class="price-tag">₹500/month per therapy</span></p>
-                    <ul>
-                        <li>Migraine & Sinus Relief</li>
-                        <li>Cold Urticaria / Cold Allergy Support</li>
-                        <li>Kapha Balancing Techniques</li>
-                    </ul>
-                </div>
-            </div>
-            
-             <div class="accordion-item">
-                <button class="accordion-header">🔥 Rituals & Consultations</button>
-                <div class="accordion-body">
-                    <h4>🔥 Vedic Rituals & Ceremonies</h4>
-                    <p><strong>Fee:</strong> <span class="price-tag">₹500/month</span></p>
-                    <ul><li><strong>Vedic Hawan with Natural Herbs:</strong> Purify mind, body, and home. (Also included in Yoga add-ons!)</li></ul>
-
-                    <h4>💬 Personal Consultation</h4>
-                    <p><strong>Fee:</strong> <span class="price-tag">₹100 per person</span></p>
-                    <ul><li>Get a personalized wellness roadmap for your physical, emotional, and spiritual needs.</li></ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="popup-footer">
-            <h3>📞 Book Your Spot Today!</h3>
-            <p><strong>Location:</strong> Gardanibag Shantipath, near Mangala Bhawan, Patna - 800001</p>
-            <p><strong>Call / WhatsApp:</strong> <a href="tel:+919955437128">+91 9955437128</a></p>
-            <p><strong>Email:</strong> <a href="mailto:spiritlyconnected@gmail.com">spiritlyconnected@gmail.com</a></p>
-            <p><strong>Website:</strong> <a href="https://spiritly.in/" target="_blank">spiritly.in</a></p>
-        </div>
-    </div>
-</div>
-<footer class="fade-in">
-    <div>Follow us on:</div>
-    <div class="social-icons">
-     <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
-
-    </div>
-    <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
-
-  </footer>
     
-<script>
-    // --- Pop-up Logic ---
-    var popup = document.getElementById("sessionPopup");
-    var btn = document.getElementById("openPopupBtn");
-    var span = document.getElementsByClassName("close-btn")[0];
+    <div id="sessionPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="popup-header">
+                <h2>🌺 Welcome to Spiritly</h2>
+                <p>A Holistic Healing & Wellness Hub to harmonize your body, mind, and soul.</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">🧘‍♀️ Yoga Sessions & Pricing</button>
+                    <div class="accordion-body">
+                        <p><strong>Timings:</strong> Monday to Friday – 1 hour/day (Total: 20 hours/month)</p>
+                        <p><strong>Monthly Charge:</strong> <span class="price-tag">₹1000 per person</span></p>
+                        <div class="special-offer">
+                            <p><strong>3-Month Special:</strong> Pay ₹3000 and get a ₹500 discount (Pay only ₹2500!)</p>
+                        </div>
+                        <h4>🎵 Included Free Add-ons:</h4>
+                        <ul>
+                            <li>💫 <strong>LIVE Maha Mrityunjay Mantra Hawan:</strong> Healing fire ceremony.</li>
+                            <li>🕉️ <strong>Mantra Chanting Sessions:</strong> Durga, Gayatri & Maha Mrityunjay.</li>
+                            <li>🙏 <strong>Hanuman Chalisa Group Session:</strong> Daily 8:00 PM – 9:00 PM.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">🌿 Therapeutic & Healing Services</button>
+                    <div class="accordion-body">
+                        <p><strong>Fee:</strong> <span class="price-tag">₹500/month per therapy</span> (Includes 4 weekly sessions)</p>
+                        <ul>
+                            <li>🎵 Music Therapy</li>
+                            <li>🌬️ Breathing Therapy (Pranayama)</li>
+                            <li>🧘 Yog Nidra (Guided Deep Relaxation)</li>
+                            <li>💖 Emotional Healing & Trauma Release</li>
+                            <li>😌 Stress Relief Sessions</li>
+                            <li>💎 Chakra Balancing</li>
+                            <li>😄 Relationship Guidance (with Humor!)</li>
+                            <li>🕰️ Past Life Regression</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">🔄 Detox & Specialized Therapies</button>
+                    <div class="accordion-body">
+                        <h4>🔄 Detox & Cleansing (Shuddhi Kriyas)</h4>
+                        <p><strong>Fee:</strong> <span class="price-tag">₹500/month per therapy</span></p>
+                        <ul>
+                            <li><strong>Shank Prakshalana / Varisara Dhauti</strong></li>
+                            <li><strong>Kunjal Kriya / Vaman Dhauti</strong></li>
+                        </ul>
+                        <h4>🩺 Specialized Condition Relief Therapies</h4>
+                        <p><strong>Fee:</strong> <span class="price-tag">₹500/month per therapy</span></p>
+                        <ul>
+                            <li>Migraine & Sinus Relief</li>
+                            <li>Cold Urticaria / Cold Allergy Support</li>
+                            <li>Kapha Balancing Techniques</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="accordion-item">
+                    <button class="accordion-header">🔥 Rituals & Consultations</button>
+                    <div class="accordion-body">
+                        <h4>🔥 Vedic Rituals & Ceremonies</h4>
+                        <p><strong>Fee:</strong> <span class="price-tag">₹500/month</span></p>
+                        <ul><li><strong>Vedic Hawan with Natural Herbs:</strong> Purify mind, body, and home.</li></ul>
+                        <h4>💬 Personal Consultation</h4>
+                        <p><strong>Fee:</strong> <span class="price-tag">₹100 per person</span></p>
+                        <ul><li>Get a personalized wellness roadmap for your physical, emotional, and spiritual needs.</li></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <h3>📞 Book Your Spot Today!</h3>
+                <p><strong>Location:</strong> Gardanibag Shantipath, near Mangala Bhawan, Patna - 800001</p>
+                <p><strong>Call / WhatsApp:</strong> <a href="tel:+919955437128">+91 9955437128</a></p>
+                <p><strong>Email:</strong> <a href="mailto:spiritlyconnected@gmail.com">spiritlyconnected@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
 
-    function openPopup() { popup.style.display = "flex"; }
-    function closePopup() { popup.style.display = "none"; }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(openPopup, 2000); // Auto-open after 2 seconds
-    });
-
-    btn.onclick = function(event) {
-        event.preventDefault();
-        openPopup();
-    }
-    span.onclick = function() { closePopup(); }
-    window.onclick = function(event) {
-        if (event.target == popup) {
-            closePopup();
-        }
-    }
-
-    // --- Accordion Logic ---
-    var acc = document.getElementsByClassName("accordion-header");
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- MOBILE MENU TOGGLE LOGIC ---
+            const menuToggle = document.getElementById("menu-toggle");
+            const navLinks = document.getElementById("nav-links");
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                    const icon = menuToggle.querySelector("i");
+                    if (icon) {
+                        icon.classList.toggle("fa-bars");
+                        icon.classList.toggle("fa-times");
+                    }
+                });
             }
+
+            // --- POPUP LOGIC ---
+            const popup = document.getElementById("sessionPopup");
+            const openPopupButtons = document.querySelectorAll(".open-popup-btn");
+            const closeBtn = document.querySelector(".popup .close-btn");
+
+            const openPopup = () => { if(popup) popup.style.display = "flex"; }
+            const closePopup = () => { if(popup) popup.style.display = "none"; }
+
+            // Auto-open popup after 2 seconds
+            setTimeout(openPopup, 2000);
+
+            // Add click event to all open buttons
+            openPopupButtons.forEach(btn => {
+                btn.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    openPopup();
+                });
+            });
+
+            // Close button functionality
+            if (closeBtn) {
+                closeBtn.onclick = closePopup;
+            }
+
+            // Close when clicking outside the popup content
+            window.onclick = (event) => {
+                if (event.target == popup) {
+                    closePopup();
+                }
+            }
+
+            // --- ACCORDION LOGIC ---
+            const accordionHeaders = document.querySelectorAll(".accordion-header");
+            accordionHeaders.forEach(header => {
+                header.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            });
         });
-    }
-</script>
+    </script>
 </body>
 </html>
-
-
-
