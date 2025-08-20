@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn simple morning meditation routines to start your day with serenity at Spiritly.">
     <title>Morning Rituals for a Peaceful Day - Spiritly</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/png">
     <link rel='stylesheet' href='meditation.css'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -16,6 +16,16 @@
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
         }
+       .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 55px;
+      width: 55px;
+    }
 
         body {
             background: linear-gradient(180deg, #f7fafc, #e6fffa);
@@ -284,7 +294,15 @@
 <body>
     <header>
         <nav>
-             <div class="logo"><img src="logo.JPG" alt="SPIRITLY LOGO">Spiritly</div>
+          
+<div class="logo-container">
+        <div class="logo">
+          <img src="logo.png" alt="spiritly Logo">
+        </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
         <ul>
             <li><a href="footprints.html">Footprints</a></li>
             <li class="dropdown">
