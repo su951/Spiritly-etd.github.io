@@ -46,3 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Toggle mobile menu
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+
+  // Toggle icon between bars and close
+  const icon = menuToggle.querySelector("i");
+  icon.classList.toggle("fa-bars");
+  icon.classList.toggle("fa-times");
+});
