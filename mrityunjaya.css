@@ -1,5 +1,16 @@
 /* mahamrityunjaya.css */
 /* Base Styles */
+ .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 55px;
+      width: 55px;
+    }
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.7;
