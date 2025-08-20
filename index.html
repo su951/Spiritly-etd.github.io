@@ -1,102 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Spiritual Healing Website</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Spiritual Healing Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <div class="page-wrapper">
-<header>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">Spiritly</div>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">Spiritly</div>
 
-      <!-- Hamburger Icon -->
-      <div class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
 
-      <ul id="nav-links">
-        <li><a href="footprints.html">Footprints</a></li>
-        <li class="dropdown">
-          <a href="privileges.html">Privileges</a>
-          <div class="dropdown-content">
-            <a href="yoga.html">Yoga</a>
-            <a href="meditation.html">Meditation</a>
-            <a href="prayer.html">Prayer</a>
-            <div class="sub-dropdown">
-              <a href="mantra.html">Mantra Chanting</a>
-              <div class="sub-dropdown-content">
-                <a href="mrityunjaya.html">Mahamrityunjaya</a>
-                <a href="gayatrimantra.html">Gayatri Mantra</a>
-                <a href="durga.html">Durga Dvatrimsha Namavali</a>
-              </div>
+                <ul id="nav-links">
+                    <li><a href="footprints.html">Footprints</a></li>
+                    <li class="dropdown">
+                        <a href="privileges.html">Privileges</a>
+                        <div class="dropdown-content">
+                            <a href="yoga.html">Yoga</a>
+                            <a href="meditation.html">Meditation</a>
+                            <a href="prayer.html">Prayer</a>
+                            <div class="sub-dropdown">
+                                <a href="mantra.html">Mantra Chanting</a>
+                                <div class="sub-dropdown-content">
+                                    <a href="mrityunjaya.html">Mahamrityunjaya</a>
+                                    <a href="gayatrimantra.html">Gayatri Mantra</a>
+                                    <a href="durga.html">Durga Dvatrimsha Namavali</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="testimonials.html">Soul Stories</a></li>
+                    <li><a href="contact.html">Connect</a></li>
+                    <li id="login-nav"><a href="#" id="login-btn">Join</a></li>
+                </ul>
             </div>
-          </div>
-        </li>
-        <li><a href="testimonials.html">Soul Stories</a></li>
-        <li><a href="contact.html">Connect</a></li>
-        <li id="login-nav"><a href="#" id="login-btn">Join</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+        </nav>
+    </header>
 
-
-    <div class="videoContainer">
-      <video autoplay muted loop id="bg-video">
-        <source src="spiritly.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-
-    <div class="floating-buttons">
-      <button class="floating-btn left-btn" onclick="location.href='privileges.html'">Discover Healing</button>
-      <button class="floating-btn right-btn" onclick="location.href='contact.html'">Reserve Your Space</button>
-    </div>
-
-    <div id="login-popup" class="popup-container">
-      <div class="form-container">
-        <span class="close-btn">&times;</span>
-        <div class="tabs">
-          <div class="tab active" data-form="loginForm">Login</div>
-          <div class="tab" data-form="signupForm">Sign Up</div>
+    <main class="page-wrapper">
+        <div class="videoContainer">
+            <video autoplay muted loop id="bg-video">
+                <source src="spiritly.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
         </div>
 
-        <form id="loginForm" class="form-content active">
-          <h3>Welcome Back</h3>
-          <input type="email" placeholder="Email Address" required />
-          <input type="password" placeholder="Password" required />
-          <button type="submit">Login to Your Account</button>
-          <div class="note">Forgot your password?</div>
-        </form>
+        <div class="floating-buttons">
+            <button class="floating-btn left-btn" onclick="location.href='privileges.html'">Discover Healing</button>
+            <button class="floating-btn right-btn" onclick="location.href='contact.html'">Reserve Your Space</button>
+        </div>
 
-        <form id="signupForm" class="form-content">
-          <h3>Create Your Account</h3>
-          <input type="text" placeholder="Full Name" required />
-          <input type="email" placeholder="Email Address" required />
-          <input type="password" placeholder="Create a Password" required />
-          <button type="submit">Join the Community</button>
-          <div class="note">Already have an account? Login above.</div>
-        </form>
-      </div>
-    </div>
-  </div> 
-  <footer class="fade-in">
-    <div>Follow us on:</div>
-    <div class="social-icons">
-      <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-    <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
-  </footer>
+        <div id="login-popup" class="popup-container">
+            <div class="form-container">
+                <span class="close-btn">&times;</span>
+                <div class="tabs">
+                    <div class="tab active" data-form="loginForm">Login</div>
+                    <div class="tab" data-form="signupForm">Sign Up</div>
+                </div>
+                <form id="loginForm" class="form-content active">
+                    <h3>Welcome Back</h3>
+                    <input type="email" placeholder="Email Address" required />
+                    <input type="password" placeholder="Password" required />
+                    <button type="submit">Login to Your Account</button>
+                    <div class="note">Forgot your password?</div>
+                </form>
+                <form id="signupForm" class="form-content">
+                    <h3>Create Your Account</h3>
+                    <input type="text" placeholder="Full Name" required />
+                    <input type="email" placeholder="Email Address" required />
+                    <input type="password" placeholder="Create a Password" required />
+                    <button type="submit">Join the Community</button>
+                    <div class="note">Already have an account? Login above.</div>
+                </form>
+            </div>
+        </div>
+    </main>
 
+    <footer>
+        <div>Follow us on:</div>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
+    </footer>
 
-
-  <script src="index.js"></script>
-
+    <script src="index.js"></script>
 </body>
 </html>
