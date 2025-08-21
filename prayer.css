@@ -1,736 +1,200 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ========= Mobile Hamburger ========= */
+const menuToggle = document.getElementById("menu-toggle");
+const navList = document.getElementById("nav-list");
+
+function closeMobileMenuOnOutsideClick(e) {
+  if (!navList.contains(e.target) && !menuToggle.contains(e.target)) {
+    navList.classList.remove("active");
+    menuToggle.setAttribute("aria-expanded", "false");
+  }
 }
- .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navList.classList.toggle("active");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  // close on outside click
+  if (isOpen) {
+    document.addEventListener("click", closeMobileMenuOnOutsideClick);
+  } else {
+    document.removeEventListener("click", closeMobileMenuOnOutsideClick);
+  }
+});
+
+/* ========= Dropdowns (click-to-open on mobile) ========= */
+const dropdownToggles = document.querySelectorAll(".dropdown > .dropdown-toggle");
+const subDropdownToggles = document.querySelectorAll(".sub-dropdown > .sub-dropdown-toggle");
+
+function togglePanel(link, panelSelector) {
+  const container = link.parentElement;
+  const panel = container.querySelector(panelSelector);
+  const expanded = link.getAttribute("aria-expanded") === "true";
+  link.setAttribute("aria-expanded", String(!expanded));
+
+  // Close siblings to avoid huge stacks
+  const siblingPanels = [...container.parentElement.querySelectorAll(panelSelector)]
+    .filter(p => p !== panel);
+  siblingPanels.forEach(p => p.classList.remove("active"));
+
+  panel.classList.toggle("active");
+}
+
+dropdownToggles.forEach(link => {
+  link.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      togglePanel(link, ".dropdown-content");
     }
-    
-    .logo img {
-      height: 55px;
-      width: 55px;
+  });
+
+  // keyboard access
+  link.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && window.innerWidth <= 768) {
+      e.preventDefault();
+      togglePanel(link, ".dropdown-content");
     }
+  });
+});
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f9fdfc;
-    color: #2d3c3a;
-    line-height: 1.6;
-}
-
-/* Header + Navbar */
-header {
-    background-color: transparent;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav {
-    position: relative;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background: transparent;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    position: relative;
-    margin: 0 15px;
-}
-
-nav li a {
-    color: #5a6478;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-}
-
-nav li a:hover {
-    color: #3e4556;
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(245, 245, 220, 0.3);
-    min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    backdrop-filter: blur(10px);
-    z-index: 100;
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Sub Dropdown */
-.sub-dropdown {
-    position: relative;
-}
-
-.sub-dropdown-content {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: rgba(245, 245, 220, 0.3);
-    min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    backdrop-filter: blur(10px);
-    z-index: 101;
-}
-
-.sub-dropdown:hover .sub-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-}
-/* ======================= Global Styles & Typography ======================= */
-:root {
-    --primary-font: 'Lora', serif;
-    --secondary-font: 'Montserrat', sans-serif;
-    --text-color: #4a4a4a;
-    --heading-color: #2c3e50;
-    --background-color: #fdfdfd;
-    --accent-color: #8e44ad;
-    --light-accent: #d7bde2;
-}
-
-body {
-    font-family: var(--secondary-font);
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.8;
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
-
-h1, h2, h3 {
-    font-family: var(--primary-font);
-    color: var(--heading-color);
-    font-weight: 700;
-}
-
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
-h3 { font-size: 1.5rem; }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
-}
-
-/* ======================= Hero Section ======================= */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -2;
-}
-
-.hero-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-}
-
-.hero-content { z-index: 1; padding: 20px; }
-.hero-content h1 { color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-.hero-content p { font-size: 1.2rem; max-width: 600px; margin: 20px auto 0; font-family: var(--primary-font); font-style: italic; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
-
-/* ======================= Universal Language Section ======================= */
-.universal-language .intro-text { text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.1rem; }
-.image-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
-.image-gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-.image-gallery img:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-/* ======================= Prayer Journey Section ======================= */
-.prayer-journey { background-color: #f4f6f7; }
-.prayer-cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.prayer-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: transform 0.3s; }
-.prayer-card:hover { transform: translateY(-10px); }
-.prayer-card img { width: 100%; height: 220px; object-fit: cover; }
-.prayer-card .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-.card-content h3 { margin-top: 0; }
-.card-content p { flex-grow: 1; }
-.cta-button { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; text-align: center; font-weight: 700; transition: background-color 0.3s, transform 0.3s; margin-top: 20px; border: none; cursor: pointer; font-family: var(--secondary-font); }
-.cta-button:hover { background-color: #7d3c98; transform: scale(1.05); }
-.cta-button i { margin-right: 8px; }
-
-/* ======================= Modal Styling ======================= */
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 2000; opacity: 0; transition: opacity 0.3s ease; }
-.modal-overlay.active { display: flex; opacity: 1; }
-.modal-content { position: relative; width: 80%; max-width: 900px; background: white; padding: 20px; border-radius: 10px; transform: scale(0.9); transition: transform 0.3s ease; }
-.modal-overlay.active .modal-content { transform: scale(1); }
-.close-button { position: absolute; top: -15px; right: -15px; color: white; background: var(--accent-color); width: 35px; height: 35px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer; line-height: 35px; }
-.modal-video, .modal-audio { width: 100%; border-radius: 5px; }
-
-/* ======================= Voices of Prayer Section ======================= */
-.voices-section .testimonial { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; max-width: 900px; margin-left: auto; margin-right: auto; }
-.voices-section .testimonial.reverse { flex-direction: row-reverse; }
-.voices-section .testimonial img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 5px white, 0 0 0 7px var(--light-accent); }
-.voices-section blockquote { border-left: 3px solid var(--accent-color); padding-left: 20px; font-family: var(--primary-font); font-style: italic; font-size: 1.2rem; margin: 0; }
-.voices-section cite { display: block; margin-top: 10px; font-weight: 700; color: var(--accent-color); }
-
-/* ======================= Sacred Practice (Prayer Wall) ======================= */
-.sacred-practice { background: #2c3e50; color: white; }
-.sacred-practice h2, .sacred-practice h3 { color: white; }
-.sacred-practice p { text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
-.prayer-wall { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; min-height: 150px; margin: 40px 0; perspective: 1000px; }
-.prayer-note { background: rgba(255, 255, 255, 0.1); color: white; padding: 15px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.2); max-width: 300px; font-family: var(--primary-font); font-style: italic; animation: fadeIn 0.8s ease; transition: transform 0.3s; word-wrap: break-word; }
-.prayer-note:hover{ transform: scale(1.05); }
-@keyframes fadeIn { from { opacity: 0; transform: rotateX(-90deg); } to { opacity: 1; transform: rotateX(0deg); } }
-.prayer-form-container { max-width: 600px; margin: 0 auto; }
-#prayer-form textarea { width: 100%; box-sizing: border-box; padding: 15px; border-radius: 5px; border: 1px solid var(--light-accent); background: rgba(255,255,255, 0.9); color: var(--text-color); font-family: var(--secondary-font); font-size: 1rem; resize: vertical; }
-#prayer-form textarea:focus { outline: none; border-color: var(--accent-color); }
-.submit-button { display: block; width: 100%; padding: 15px; margin-top: 15px; background: var(--accent-color); color: white; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background-color 0.3s; }
-.submit-button:hover { background-color: #7d3c98; }
-
-   
- .social-icons a {
-      color: white;
-      margin: 0 10px;
-      font-size: 24px;
-      transition: color 0.3s;
+subDropdownToggles.forEach(link => {
+  link.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      togglePanel(link, ".sub-dropdown-content");
     }
+  });
 
-    .social-icons a:hover {
-      color: #f0db4f;
+  link.addEventListener("keydown", (e) => {
+    if ((e.key === "Enter" || e.key === " ") && window.innerWidth <= 768) {
+      e.preventDefault();
+      togglePanel(link, ".sub-dropdown-content");
     }
+  });
+});
 
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background-color: #2c3e50;
-      color: white;
-      border-radius: 10px;
-      margin-top: 30px;
-    }
+/* ========= Modals ========= */
+const body = document.body;
 
-    .fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
+function openModal(id) {
+  const overlay = document.getElementById(id);
+  if (!overlay) return;
+  overlay.classList.add("active");
+  body.style.overflow = "hidden";
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-/* ======================= Responsive Design ======================= */
-@media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    .voices-section .testimonial, .voices-section .testimonial.reverse { flex-direction: column; text-align: center; }
-    .voices-section blockquote { border-left: none; border-top: 3px solid var(--accent-color); padding-left: 0; padding-top: 20px; }
-}
-/* Hamburger Menu Toggle */
-.menu-toggle {
-    display: none; /* Hidden on desktop */
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--primary-color);
+  // focus trap to close with ESC
+  function escClose(ev) {
+    if (ev.key === "Escape") closeModal(id);
+  }
+  overlay.dataset.escHandler = escClose; // store ref
+  document.addEventListener("keydown", escClose);
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    transition: transform 0.3s ease-in-out;
+function closeModal(id) {
+  const overlay = document.getElementById(id);
+  if (!overlay) return;
+  overlay.classList.remove("active");
+  body.style.overflow = "";
+  const escClose = overlay.dataset.escHandler;
+  if (escClose) {
+    document.removeEventListener("keydown", escClose);
+    delete overlay.dataset.escHandler;
+  }
+
+  // Pause any media inside
+  overlay.querySelectorAll("video, audio").forEach(m => {
+    if (!m.paused) m.pause();
+  });
 }
 
-nav ul li {
-    position: relative;
-    margin: 0 15px;
+// open triggers
+document.querySelectorAll("[data-modal-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.getAttribute("data-modal-target");
+    openModal(target);
+  });
+});
+
+// close triggers
+document.querySelectorAll("[data-close]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const overlay = btn.closest(".modal-overlay");
+    if (overlay) closeModal(overlay.id);
+  });
+});
+
+// click outside content to close
+document.querySelectorAll(".modal-overlay").forEach(overlay => {
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+
+/* ========= Prayer Wall (localStorage) ========= */
+const form = document.getElementById("prayer-form");
+const textarea = document.getElementById("prayer-input");
+const wall = document.getElementById("prayer-wall");
+const charCount = document.getElementById("char-count");
+const STORAGE_KEY = "spiritly_prayers";
+
+/** Load existing prayers */
+function loadPrayers() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const arr = raw ? JSON.parse(raw) : [];
+    wall.innerHTML = "";
+    arr.forEach(addPrayerNode);
+  } catch {
+    wall.innerHTML = "";
+  }
 }
 
-nav li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    transition: color 0.3s;
+/** Save prayers array */
+function savePrayers(arr) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
 }
 
-nav li a:hover {
-    color: var(--accent-color);
+/** Add prayer card to DOM */
+function addPrayerNode(text) {
+  const note = document.createElement("div");
+  note.className = "prayer-note";
+  note.textContent = text; // safe (escapes)
+  wall.appendChild(note);
 }
 
-/* Dropdown */
-.dropdown-content,
-.sub-dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: rgba(245, 245, 220, 0.3);
-    min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    backdrop-filter: blur(10px);
-    z-index: 100;
+/** Get array from storage */
+function getPrayers() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
 }
 
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content,
-.sub-dropdown:hover .sub-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+/** Character counter */
+textarea.addEventListener("input", () => {
+  charCount.textContent = `${textarea.value.length}/200`;
+});
 
-.sub-dropdown-content {
-    top: 0;
-    left: 100%;
-    transform: translateX(10px);
-}
+/** Submit handler */
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const val = textarea.value.trim();
+  if (!val) return;
 
-.sub-dropdown:hover .sub-dropdown-content {
-    transform: translateX(0);
-}
+  // Basic normalization
+  const cleaned = val.replace(/\s+/g, " ").slice(0, 200);
+  addPrayerNode(cleaned);
 
-.dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.3s;
-}
+  const arr = getPrayers();
+  arr.unshift(cleaned); // newest first
+  savePrayers(arr);
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+  textarea.value = "";
+  charCount.textContent = "0/200";
+});
 
-/* Sections */
-.hero-section {
-    position: relative;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-.hero-content {
-    z-index: 1;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-h1 {
-    font-size: 3em;
-    font-weight: 300;
-}
-
-p.hero-content p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-.universal-language,
-.prayer-journey,
-.voices-section,
-.sacred-practice {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.intro-text {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.image-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.image-gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.image-gallery img:hover {
-    transform: scale(1.05);
-}
-
-.prayer-cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.prayer-card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.prayer-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-}
-
-.prayer-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 20px;
-}
-
-.card-content h3 {
-    color: var(--accent-color);
-    margin-bottom: 10px;
-}
-
-.cta-button {
-    background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1001;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--primary-color);
-}
-
-.modal-video,
-.modal-audio {
-    width: 100%;
-    margin-top: 20px;
-}
-
-.testimonial {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    max-width: 800px;
-    margin: 40px auto;
-    text-align: left;
-}
-
-.testimonial img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--secondary-accent);
-}
-
-.testimonial.reverse {
-    flex-direction: row-reverse;
-    text-align: right;
-}
-
-.testimonial.reverse img {
-    border: 3px solid var(--accent-color);
-}
-
-.prayer-wall {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.prayer-post {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    font-style: italic;
-    font-size: 0.9em;
-}
-
-.prayer-form-container {
-    max-width: 600px;
-    margin: 40px auto 0;
-}
-
-#prayer-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#prayer-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--dark-bg);
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1em;
-}
-
-.submit-button {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s;
-}
-
-.submit-button:hover {
-    background: #7a4bbd;
-}
-
-footer {
-    text-align: center;
-    padding: 30px 0;
-    background-color: var(--accent-color);
-    color: white;
-    margin-top: 30px;
-}
-
-.social-icons a {
-    color: white;
-    margin: 0 10px;
-    font-size: 24px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #f0db4f;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    /* Show hamburger menu and stack nav links vertically */
-    .menu-toggle {
-        display: block;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-    }
-
-    nav ul.active {
-        display: flex;
-        animation: slideDown 0.5s ease-in-out forwards;
-    }
-
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .logo-container {
-      margin-bottom: 0;
-    }
-
-    /* Fix dropdowns for mobile */
-    .dropdown-content,
-    .sub-dropdown-content {
-        position: static;
-        width: 100%;
-        min-width: auto;
-        box-shadow: none;
-        background-color: transparent;
-        backdrop-filter: none;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        display: none; /* Hide by default */
-        padding-left: 20px;
-    }
-
-    .dropdown:hover .dropdown-content,
-    .dropdown:focus-within .dropdown-content {
-        display: block;
-    }
-
-    .sub-dropdown:hover .sub-dropdown-content {
-        display: block;
-    }
-
-    .testimonial {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .testimonial.reverse {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .testimonial img {
-        margin-bottom: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-gallery,
-    .prayer-cards-container,
-    .prayer-wall {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 1.5em;
-    }
-}
+/** Init on load */
+document.addEventListener("DOMContentLoaded", () => {
+  loadPrayers();
+  charCount.textContent = `${textarea.value.length}/200`;
+});
