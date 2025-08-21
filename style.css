@@ -140,26 +140,21 @@ header {
 }
 /* Floating Buttons */
 .floating-buttons {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 10;
+    position: fixed;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                z-index: 10;
 }
 
 .floating-btn {
-    padding: 12px 24px;
-    border: none;
-    background: #f4d03f;
-    color: #000;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    position: fixed;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                z-index: 10;
 }
-
+        
 .floating-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(244, 208, 63, 0.4);
