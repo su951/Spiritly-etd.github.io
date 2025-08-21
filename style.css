@@ -281,6 +281,7 @@ footer {
     font-size: 14px;
     width: 100%;
     z-index: 10;
+    position:relative;
 }
 
 .social-icons {
