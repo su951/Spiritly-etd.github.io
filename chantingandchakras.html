@@ -6,7 +6,6 @@
     <meta name="description" content="Explore the power of chanting and sound healing to balance your chakras with Spiritly’s holistic practices.">
     <title>Chanting and Chakras: The Power of Sound Healing - Spiritly</title>
     <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="meditation.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* CSS3 Styling */
@@ -386,14 +385,11 @@
   </footer>
 
     <script>
-        // Add this script inside your <script> tag
-const hamburger = document.querySelector('.hamburger-menu');
-const navMenu = document.querySelector('.main-nav');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+   const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
         // JavaScript for interactivity
         window.addEventListener('scroll', function () {
             const articleSection = document.querySelector('.article-section');
