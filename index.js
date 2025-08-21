@@ -17,47 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- POPUP AND TAB LOGIC ---
-    const loginPopup = document.getElementById('login-popup');
-    const loginBtn = document.getElementById('login-btn');
-    const closeBtn = document.querySelector('.popup-container .close-btn');
-    const tabs = document.querySelectorAll('.tab');
-    const formContents = document.querySelectorAll('.form-content');
-
-    // Check if all necessary elements for the popup exist
-    if (loginPopup && loginBtn && closeBtn && tabs.length > 0 && formContents.length > 0) {
-        
-        // --- Function to show the popup ---
-        const showPopup = () => {
-            loginPopup.style.display = 'flex';
-        };
-
-        // --- Function to hide the popup ---
-        const hidePopup = () => {
-            loginPopup.style.display = 'none';
-        };
-
-        // --- AUTO-POPUP LOGIC ---
-        // Automatically show the popup after 2.5 seconds
-        setTimeout(showPopup, 2500);
-
-        // --- MANUAL TRIGGER LOGIC ---
-        // Show popup when the 'Join' button is clicked
-        loginBtn.addEventListener('click', (event) => {
-            event.preventDefault(); 
-            showPopup();
-        });
-
-        // --- HIDE POPUP LOGIC ---
-        // Hide popup when the close button is clicked
-        closeBtn.addEventListener('click', hidePopup);
-
-        // Hide popup when clicking on the background overlay
-        loginPopup.addEventListener('click', (event) => {
-            if (event.target === loginPopup) {
-                hidePopup();
-            }
-        });
 
         // --- TAB SWITCHING LOGIC ---
         tabs.forEach(tab => {
