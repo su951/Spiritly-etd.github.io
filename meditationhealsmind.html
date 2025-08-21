@@ -242,14 +242,17 @@
             opacity: 1;
         }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: linear-gradient(45deg, #63b3ed, #b2f5ea);
-            color: white;
-            font-size: 0.95rem;
-        }
+       footer{
+  text-align:center; padding: 28px 0; background-color: #2c3e50;
+  color:#fff; border-radius: 0; margin-top: auto;
+}
+.social-icons a{
+  color:#fff; margin: 0 10px; font-size: 22px; transition: color .25s;
+}
+.social-icons a:hover{ color:#f0db4f; }
 
+.fade-in{ animation: fadeIn 1s ease-in-out; }
+@keyframes fadeIn{ from{ opacity:0 } to{ opacity:1 } }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -299,41 +302,49 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            
-<div class="logo-container">
+  <header>
+    <nav aria-label="Main">
+      <div class="logo-container">
         <div class="logo">
-          <img src="logo.png" alt="spiritly Logo">
+          <img src="logo.png" alt="Spiritly Logo" />
         </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
 
-        <ul>
-            <li><a href="footprints.html">Footprints</a></li>
-            <li class="dropdown">
-            <a href="privileges.html">Privileges</a>
-            <div class="dropdown-content">
-                <a href="yoga.html">Yoga</a>
-                <a href="meditation.html">Meditation</a>
-                <a href="prayer.html">Prayer</a>
-                <div class="sub-dropdown">
-                <a href="mantra.html">Mantra Chanting</a>
-                  <div class="sub-dropdown-content">
-                    <a href="mrityunjaya.html">Mahamrityunjaya</a>
-                    <a href="gayatrimantra.html">Gayatri Mantra</a>
-                    <a href="durga.html">Durga Dvatrimsha Namavali</a>
-                 </div>
-                </div>
+      <ul id="nav-list">
+        <li><a href="footprints.html">Footprints</a></li>
+
+        <li class="dropdown">
+          <a href="privileges.html" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Privileges
+          </a>
+
+          <div class="dropdown-content" role="menu">
+            <a href="yoga.html" role="menuitem">Yoga</a>
+            <a href="meditation.html" role="menuitem">Meditation</a>
+            <a href="prayer.html" role="menuitem" aria-current="page">Prayer</a>
+
+            <div class="sub-dropdown">
+              <a href="mantra.html" class="sub-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                Mantra Chanting
+              </a>
+
+              <div class="sub-dropdown-content" role="menu">
+                <a href="mrityunjaya.html" role="menuitem">Mahamrityunjaya</a>
+                <a href="gayatrimantra.html" role="menuitem">Gayatri Mantra</a>
+                <a href="durga.html" role="menuitem">Durga Dvatrimsha Namavali</a>
               </div>
-            </li>
+            </div>
+          </div>
+        </li>
 
-            <li><a href="testimonials.html">Soul Stories</a></li>
-            <li><a href="contact.html">Connect</a></li>
-        </ul>
-        </nav>
-    </header>
+        <li><a href="testimonials.html">Soul Stories</a></li>
+        <li><a href="contact.html">Connect</a></li>
+      </ul>
+    </nav>
+  </header>
     <div class='header'>
         <h1>How Meditation Heals the Mind</h1>
         <p>Discover the transformative power of meditation with Spiritly’s holistic practices.</p>
