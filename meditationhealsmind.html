@@ -71,7 +71,80 @@
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
-        }       
+        }   
+           /* Navbar */
+    header {
+      background-color: transparent;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #f0db4f;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        border-radius: 10px;
+        padding: 15px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
         .article-section {
             background: white;
             padding: 2.5rem;
@@ -302,49 +375,23 @@
     </style>
 </head>
 <body>
-  <header>
-    <nav aria-label="Main">
-      <div class="logo-container">
-        <div class="logo">
-          <img src="logo.png" alt="Spiritly Logo" />
-        </div>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+<header>
+  <div class="logo-container">
+    <div class="logo">
+      <img src="logo.png" alt="Spiritly Logo">
+    </div>
+  </div>
+  <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="footprints.html">Footprints</a></li>
+      <li><a href="privileges.html">Privileges</a></li>
+      <li><a href="testimonials.html">Soul Stories</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
 
-      <ul id="nav-list">
-        <li><a href="footprints.html">Footprints</a></li>
-
-        <li class="dropdown">
-          <a href="privileges.html" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            Privileges
-          </a>
-
-          <div class="dropdown-content" role="menu">
-            <a href="yoga.html" role="menuitem">Yoga</a>
-            <a href="meditation.html" role="menuitem">Meditation</a>
-            <a href="prayer.html" role="menuitem" aria-current="page">Prayer</a>
-
-            <div class="sub-dropdown">
-              <a href="mantra.html" class="sub-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                Mantra Chanting
-              </a>
-
-              <div class="sub-dropdown-content" role="menu">
-                <a href="mrityunjaya.html" role="menuitem">Mahamrityunjaya</a>
-                <a href="gayatrimantra.html" role="menuitem">Gayatri Mantra</a>
-                <a href="durga.html" role="menuitem">Durga Dvatrimsha Namavali</a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li><a href="testimonials.html">Soul Stories</a></li>
-        <li><a href="contact.html">Connect</a></li>
-      </ul>
-    </nav>
-  </header>
     <div class='header'>
         <h1>How Meditation Heals the Mind</h1>
         <p>Discover the transformative power of meditation with Spiritly’s holistic practices.</p>
@@ -423,5 +470,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
+    <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+</script>
 </body>
 </html>
