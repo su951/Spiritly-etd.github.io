@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     // --- MOBILE MENU TOGGLE LOGIC ---
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
@@ -7,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
-
-            // Toggle icon between bars and close
             const icon = menuToggle.querySelector("i");
             if (icon) {
                 icon.classList.toggle("fa-bars");
@@ -17,8 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- TAB SWITCHING LOGIC ---
+    const tabs = document.querySelectorAll('.tab-item'); // Define tabs here
+    const formContents = document.querySelectorAll('.form-content'); // Define formContents here
 
-        // --- TAB SWITCHING LOGIC ---
+    if (tabs.length > 0 && formContents.length > 0) { // Check if elements exist
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 // Deactivate all tabs and forms
