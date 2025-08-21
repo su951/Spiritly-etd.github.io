@@ -28,13 +28,6 @@
     }
         
 
-        body {
-            background: linear-gradient(180deg, #f7fafc, #e6fffa);
-            color: #2d3748;
-            line-height: 1.8;
-            overflow-x: hidden;
-            position: relative;
-        }
 
    header {
             background: linear-gradient(135deg, #d6bcfa, #81e6d9);
@@ -71,7 +64,14 @@
             margin: 3rem auto;
             padding: 0 1.5rem;
         }
-       
+
+        body {
+            background: linear-gradient(180deg, #f7fafc, #e6fffa);
+            color: #2d3748;
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }       
         .article-section {
             background: white;
             padding: 2.5rem;
@@ -272,6 +272,30 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Media query for mobile devices */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* Hide the full menu */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show the hamburger icon */
+    }
+
+    /* Style for when the menu is active/open */
+    .main-nav.active {
+        display: flex;
+        flex-direction: column;
+        /* Position the menu, e.g., full screen overlay */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+    }
+}
     </style>
 </head>
 <body>
