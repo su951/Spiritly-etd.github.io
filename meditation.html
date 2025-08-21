@@ -5,45 +5,339 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Spiritly - Meditation</title>
   <link rel="icon" href="logo.png" type="image/png">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="meditation.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fdfc;
+      color: #2d3c3a;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    header {
+      background-color: transparent;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #f0db4f;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        border-radius: 10px;
+        padding: 15px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(40, 40, 60, 0.5);
+      z-index: -1;
+    }
+
+    .overlay {
+      z-index: 1;
+      color: white;
+      padding: 20px;
+      max-width: 800px;
+    }
+
+    .overlay h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      display: inline-block;
+      background-color: #9067c6;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background-color: #5e548e;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 300px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      text-align: left;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .blog-card h3 {
+      padding: 15px;
+      font-size: 1.2rem;
+    }
+
+    .blog-card p {
+      padding: 0 15px 15px;
+    }
+
+    .blog-card a {
+      display: inline-block;
+      padding: 10px 15px;
+      color: #9067c6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #9067c6;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+
+    .social-icons a:hover {
+      color: #f0db4f;
+    }
+  </style>
 </head>
 <body>
-<header>
-        <nav>     
-<div class="logo-container">
-        <div class="logo">
-          <img src="logo.png" alt="spiritly Logo">
-        </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
 
-        <ul>
-            <li><a href="footprints.html">Footprints</a></li>
-            <li class="dropdown">
-            <a href="privileges.html">Privileges</a>
-            <div class="dropdown-content">
-                <a href="yoga.html">Yoga</a>
-                <a href="meditation.html">Meditation</a>
-                <a href="prayer.html">Prayer</a>
-                <div class="sub-dropdown">
-                <a href="mantra.html">Mantra Chanting</a>
-                <div class="sub-dropdown-content">
-                    <a href="mrityunjaya.html">Mahamrityunjaya</a>
-                    <a href="gayatrimantra.html">Gayatri Mantra</a>
-                    <a href="durga.html">Durga Dvatrimsha Namavali</a>
-                </div>
-                </div>
-            </div>
-            </li>
-       
-            <li><a href="testimonials.html">Soul Stories</a></li>
-            <li><a href="contact.html">Connect</a></li>
-        </ul>
-        </nav>
-    </header>
-  <!-- Hero Section -->
- 
+<header>
+  <div class="logo-container">
+    <div class="logo">
+      <img src="logo.png" alt="Spiritly Logo">
+    </div>
+  </div>
+  <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+  <nav>
+    <ul id="nav-menu">
+      <li><a href="footprints.html">Footprints</a></li>
+      <li><a href="privileges.html">Privileges</a></li>
+      <li><a href="testimonials.html">Soul Stories</a></li>
+      <li><a href="contact.html">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="meditation.mp4" type="video/mp4"/>
+  </video>
+  <div class="overlay">
+    <h1>Find Your Inner Peace</h1>
+    <p>Welcome to Spiritly’s Meditation Corner – a sacred space to breathe, let go, and reconnect.</p>
+    <a href="#meditation-types" class="cta">Explore Meditations</a>
+  </div>
+</section>
+
+<!-- Meditation Types Section -->
+<section id="meditation-types" class="section">
+  <h2>Types of Meditation</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Mindfulness</h3>
+      <p>Be present in the moment with guided breathing and awareness techniques.</p>
+    </div>
+    <div class="card">
+      <h3>Mantra</h3>
+      <p>Chant sacred sounds to align your energy and focus your mind.</p>
+    </div>
+    <div class="card">
+      <h3>Body Scan</h3>
+      <p>Relax each part of your body while connecting deeply to your breath.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section class="section" id="blog">
+  <h2>Meditation Blogs</h2>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <img src="healing.jpg" alt="Blog 1">
+      <h3>How Meditation Heals the Mind</h3>
+      <p>Discover how mindfulness practices improve emotional balance and mental clarity.</p>
+      <a href="meditationhealsmind.html">Read More</a>
+    </div>
+    <div class="blog-card">
+      <img src="morning.jpg" alt="Blog 2">
+      <h3>Morning Rituals for a Peaceful Day</h3>
+      <p>Start your day with serenity through simple morning meditation routines.</p>
+      <a href="morningrituals.html">Read More</a>
+    </div>
+    <div class="blog-card">
+      <img src="chakras.jpg" alt="Blog 3">
+      <h3>Chanting and Chakras</h3>
+      <p>Explore the power of sound healing and its effect on the body’s energy centers.</p>
+      <a href="chantingandchakras.html">Read More</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>Follow us on:</div>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="privacyandpolicy.html" target="_blank">Privacy Policy</a>
+    <a href="terms and conditions.html" target="_blank">Terms & Conditions</a>
+  </div>
+  <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+</script>
+
 </body>
 </html>
