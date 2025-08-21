@@ -16,21 +16,23 @@ body {
     flex-direction: column; /* 2. Stack children vertically */
     min-height: 100vh; /* 3. Ensure body is at least full screen height */
 }
+
 .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .logo img {
-      height: 55px;
-      width: 55px;
-    }
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 55px;
+    width: 55px;
+}
 
 /* Page Wrapper - NEW STYLES */
 .page-wrapper {
     flex-grow: 1; /* Makes the main content grow to push footer down */
-    position: relative; /* Acts as an anchor for absolutely positioned children */
+    position: relative;
+    padding-top: 70px; /* Header ki height ke hisaab se push */
 }
 
 /* NAVBAR */
@@ -281,7 +283,8 @@ footer {
     font-size: 14px;
     width: 100%;
     z-index: 10;
-    position:relative;
+    position: relative;
+    clear: both;
 }
 
 .social-icons {
