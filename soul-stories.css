@@ -28,7 +28,15 @@ header {
     padding: 10px 0;
     text-align: center;
 }
-
+/* Initially hide the hamburger menu button on desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary); /* Adjust color to your design */
+}
 nav {
     position: relative;
 }
@@ -580,5 +588,81 @@ nav li a:hover {
     .btn {
         padding: 0.6rem 1.5rem;
         font-size: 0.9rem;
+    }
+}
+/* --- HAMBURGER MENU STYLES --- */
+
+
+
+/* Style the navigation container for mobile */
+.nav-links {
+    width: 100%;
+}
+
+.nav-links ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between the links */
+}
+
+/* On mobile, the menu is hidden by default */
+@media (max-width: 768px) {
+    /* Show the hamburger menu button */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Hide the navigation links by default on mobile */
+    .nav-links {
+        display: none;
+    }
+
+    /* When the menu is active, display the links vertically */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Style the top part of the nav (logo and menu toggle) */
+    .nav-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    /* Stack dropdown content vertically on mobile */
+    .dropdown-content,
+    .sub-dropdown-content {
+        position: static;
+        width: 100%;
+        min-width: auto;
+        box-shadow: none;
+        background-color: transparent;
+        backdrop-filter: none;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+    }
+    
+    .dropdown-content a, .sub-dropdown-content a {
+        padding-left: 2rem;
+        background-color: rgba(245, 245, 220, 0.3);
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    /* Show the dropdowns when hovered or focused on mobile */
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+    
+    .sub-dropdown:hover .sub-dropdown-content {
+        display: block;
     }
 }
