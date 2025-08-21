@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+// --- HAMBURGER MENU TOGGLE ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navUl = document.querySelector('nav ul');
 
+    menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (navUl.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
     // --- Modal Logic ---
     window.openModal = (modalId) => {
         const modal = document.getElementById(modalId);
