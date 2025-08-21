@@ -10,49 +10,51 @@
     </head>
     <body>
 
-    <header>
-        <nav><div class="logo-container">
+     <header>
+    <nav>
+      <div class="logo-container">
         <div class="logo">
-          <img src="logo.png" alt="spiritly Logo">
+          <img src="logo.png" alt="Spiritly Logo">
         </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-
-        <ul>
-            <li><a href="footprints.html">Footprints</a></li>
-            <li class="dropdown">
-            <a href="privileges.html">Privileges</a>
-            <div class="dropdown-content">
-                <a href="yoga.html">Yoga</a>
-                <a href="meditation.html">Meditation</a>
-                <a href="prayer.html">Prayer</a>
-                <div class="sub-dropdown">
-                <a href="mantra.html">Mantra Chanting</a>
-                <div class="sub-dropdown-content">
-                    <a href="mrityunjaya.html">Mahamrityunjaya</a>
-                    <a href="gayatrimantra.html">Gayatri Mantra</a>
-                    <a href="durga.html">Durga Dvatrimsha Namavali</a>
-                </div>
-                </div>
-            </div>
-            </li>
-        
-            <li><a href="testimonials.html">Soul Stories</a></li>
-            <li><a href="contact.html">Connect</a></li>
-        </ul>
-        </nav>
-    </header>
-
-    <section class="hero-section">
-        <video autoplay muted loop class="hero-video">
-        <source src="yoga.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-        </video>
-        <div class="hero-overlay">
-        <h1 class="hero-heading">Yoga: The Path to Inner Peace</h1>
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
         </div>
-    </section>
+      </div>
+
+      <ul id="nav-links">
+        <li><a href="footprints.html">Footprints</a></li>
+        <li class="dropdown">
+          <a href="privileges.html">Privileges</a>
+          <div class="dropdown-content">
+            <a href="yoga.html">Yoga</a>
+            <a href="meditation.html">Meditation</a>
+            <a href="prayer.html">Prayer</a>
+            <div class="sub-dropdown">
+              <a href="mantra.html">Mantra Chanting</a>
+              <div class="sub-dropdown-content">
+                <a href="mrityunjaya.html">Mahamrityunjaya</a>
+                <a href="gayatrimantra.html">Gayatri Mantra</a>
+                <a href="durga.html">Durga Dvatrimsha Namavali</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="testimonials.html">Soul Stories</a></li>
+        <li><a href="contact.html">Connect</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <video autoplay muted loop class="hero-video">
+      <source src="yoga.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <h1 class="hero-heading">Yoga: The Path to Inner Peace</h1>
+    </div>
+  </section>
 
     <section class="yoga-content">
         <div class="content-box">
@@ -120,31 +122,35 @@
        
 </section>
     </section>
-
-    <!-- Image Gallery Section -->
-    <section class="gallery-section">
-        <h2>Yoga Moments</h2>
-        <div class="gallery-grid">
-        <img src="yoga7.jpg" alt="Yoga 7" />
-        <img src="yoga4.jpg" alt="Yoga 4" />
-        <img src="yoga5.jpg" alt="Yoga 5" />
-        <img src="yoga6.jpg" alt="Yoga 6" />
-        <img src="yoga1.jpg" alt="Yoga Pose again" />
-        <img src="yoga2.jpg" alt="Yoga Pose again" />
-        <img src="yoga8.jpg" alt="Yoga Pose again" />
-        <img src="yoga9.jpg" alt="Yoga Pose again" />
+         <!-- Gallery -->
+  <section class="gallery-section">
+    <h2>Yoga Moments</h2>
+    <div class="gallery-grid">
+      <img src="yoga7.jpg" alt="Yoga 7" />
+      <img src="yoga4.jpg" alt="Yoga 4" />
+      <img src="yoga5.jpg" alt="Yoga 5" />
+      <img src="yoga6.jpg" alt="Yoga 6" />
     </div>
-    </section>
-        <footer class="fade-in">
+  </section>
+
+  <footer>
     <div>Follow us on:</div>
     <div class="social-icons">
-         <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
-               <a href="privacyandpolicy.html" target="_blank">privacy and policy</a>
-      <a href="terms and conditions.html" target="_blank">terms and conditions</a>
+      <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
     <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
-
   </footer>
+
+  <!-- JS for Hamburger -->
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+
     </body>
     </html>
 
