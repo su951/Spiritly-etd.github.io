@@ -12,14 +12,12 @@
     <header>
         <nav>
             <div class="logo-container">
-        <div class="logo">
-          <img src="logo.png" alt="spiritly Logo">
-        </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-
-
+                <div class="logo">
+                    <img src="logo.png" alt="spiritly Logo">
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul id="nav-links">
                     <li><a href="footprints.html">Footprints</a></li>
                     <li class="dropdown">
@@ -40,7 +38,6 @@
                     </li>
                     <li><a href="testimonials.html">Soul Stories</a></li>
                     <li><a href="contact.html">Connect</a></li>
-
                 </ul>
             </div>
         </nav>
@@ -58,18 +55,46 @@
             <button class="floating-btn left-btn" onclick="location.href='privileges.html'">Discover Healing</button>
             <button class="floating-btn right-btn" onclick="location.href='contact.html'">Reserve Your Space</button>
         </div>
+    </main>
 
-    <footer>
+    <footer id="footer">
         <div>Follow us on:</div>
         <div class="social-icons">
+<<<<<<< HEAD
        
       <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
       <a href="privacyandpolicy.html" target="_blank">privacyandpolicy</a>
       <a href="terms and conditions.html" target="_blank">terms and conditions</a>
+=======
+            <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="privacyandpolicy.html">privacy policy</a>
+            <a href="terms and conditions.html">terms and conditions</a>
+>>>>>>> 2f5cf855691f920da9b333f23414f4d9c1c3064b
         </div>
         <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
     </footer>
 
     <script src="index.js"></script>
+    <script>
+        // Hamburger menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Show footer on scroll
+        const footer = document.getElementById('footer');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) { // Change 100 to the desired scroll position
+                footer.style.visibility = 'visible';
+                footer.style.opacity = '1';
+            } else {
+                footer.style.visibility = 'hidden';
+                footer.style.opacity = '0';
+            }
+        });
+    </script>
 </body>
 </html>
