@@ -448,6 +448,13 @@
 
 
     <script>
+            
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+
         // JavaScript for interactivity
         window.addEventListener('scroll', function () {
             const articleSection = document.querySelector('.article-section');
@@ -470,12 +477,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-    <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-  });
-</script>
+
 </body>
 </html>
