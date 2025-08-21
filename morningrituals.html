@@ -27,6 +27,32 @@
       width: 55px;
     }
 
+        header nav {
+            position: relative;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+      }
         body {
             background: linear-gradient(180deg, #f7fafc, #e6fffa);
             color: #2d3748;
@@ -66,32 +92,6 @@
             clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
         }
 
-        header nav {
-            position: relative;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        header nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
-
-        header nav ul li {
-            margin: 0 1.5rem;
-        }
-
-        header nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        header nav ul li a:hover {
-            text-decoration: underline;
-      }
         .container {
             max-width: 800px;
             margin: 3rem auto;
