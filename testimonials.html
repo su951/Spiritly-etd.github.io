@@ -192,6 +192,8 @@
     <div>Follow us on:</div>
     <div class="social-icons">
      <a href="https://www.youtube.com/@spiritualheelingpunamjee" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="privacyandpolicy.html" target="_blank">privacy and policy</a>
+    <a href="terms and conditions.html">terms and conditions</a>
     </div>
     <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
 
@@ -208,6 +210,22 @@
     <script>
         // Simple image click handler
         document.addEventListener('DOMContentLoaded', function() {
+                // --- MOBILE MENU TOGGLE LOGIC ---
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+
+            // Toggle icon between bars and close
+            const icon = menuToggle.querySelector("i");
+            if (icon) {
+                icon.classList.toggle("fa-bars");
+                icon.classList.toggle("fa-times");
+            }
+        });
+    
             const images = document.querySelectorAll('.photo-grid img, .main-feature-photo');
             
             images.forEach(img => {
@@ -240,24 +258,7 @@
                 });
             });
         });
-        document.addEventListener('DOMContentLoaded', () => {
-
-    // --- MOBILE MENU TOGGLE LOGIC ---
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-
-            // Toggle icon between bars and close
-            const icon = menuToggle.querySelector("i");
-            if (icon) {
-                icon.classList.toggle("fa-bars");
-                icon.classList.toggle("fa-times");
-            }
-        });
-    }
+    
     </script>
 
 </body>
