@@ -330,20 +330,161 @@
         grid-template-columns: 1fr;
       }
     }
+        /* Mobile Responsiveness */
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 2rem;
+        margin-top: 20px;
+      }
+
+      .sanskrit {
+        font-size: 1.6rem;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        text-align: left;
+        background: rgba(26, 35, 126, 0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+      }
+      
+      nav ul.show {
+        display: flex;
+      }
+      
+      nav ul li {
+        margin: 0;
+        width: 100%;
+      }
+      
+      nav li a {
+        padding: 15px 20px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .dropdown-content, .sub-dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background-color: rgba(30, 30, 30, 0.9);
+        display: none;
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .dropdown:hover .dropdown-content,
+      .sub-dropdown:hover .sub-dropdown-content {
+        display: block;
+      }
+      
+      .sub-dropdown-content {
+        left: 0;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .dropdown > a::after {
+        content: ' ▾';
+      }
+      
+      .sub-dropdown > a::after {
+        content: ' ▸';
+        float: right;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px 0;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .mantra-display {
+        padding: 20px 15px;
+      }
+      
+      .sanskrit {
+        font-size: 1.4rem;
+      }
+      
+      .transliteration, .meaning {
+        font-size: 1rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      .content-section {
+        padding: 20px;
+      }
+      
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+      
+      .logo img {
+        height: 45px;
+        width: 45px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .sanskrit {
+        font-size: 1.2rem;
+      }
+      
+      h2 {
+        font-size: 1.4rem;
+      }
+      
+      .audio-control {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <nav>
+     <nav>
       <div class="logo-container">
         <div class="logo">
           <img src="logo.png" alt="spiritly Logo">
         </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
 
-      <ul>
+      <ul id="nav-menu">
         <li><a href="footprints.html">Footprints</a></li>
         <li class="dropdown">
           <a href="privileges.html">Privileges</a>
@@ -413,6 +554,20 @@
 
   <!-- JavaScript -->
   <script>
+    // Hamburger menu functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+      }
+    });
     window.onload = function () {
       const audio = document.getElementById('mantraAudio');
       audio.volume = 0.4;
