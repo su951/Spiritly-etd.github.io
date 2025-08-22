@@ -289,6 +289,20 @@
   </footer>
 
     <script>
+       // Hamburger menu functionality
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+      }
+    });
              
     document.addEventListener('DOMContentLoaded', function() {
       const audio = document.getElementById('bgAudio');
@@ -307,11 +321,7 @@
     });
 
 
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-  });
+
     </script>
   </body>
 </html>
