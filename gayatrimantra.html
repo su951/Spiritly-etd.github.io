@@ -21,7 +21,8 @@
       padding: 0;
       box-sizing: border-box;
     }
- .logo-container {
+    
+    .logo-container {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -67,6 +68,7 @@
       border-radius: 10px;
       margin-bottom: 30px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
 
     header h1 {
@@ -80,6 +82,22 @@
     header p {
       font-size: 1.2rem;
       color: #f0f0f0;
+    }
+
+    /* Navigation Styles */
+    nav {
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1001;
     }
 
     nav ul {
@@ -103,6 +121,7 @@
       padding: 8px 12px;
       border-radius: 5px;
       transition: all 0.3s ease;
+      display: block;
     }
 
     nav li a:hover {
@@ -278,7 +297,8 @@
     .audio-control:hover {
       transform: scale(1.1);
     }
-     .social-icons a {
+    
+    .social-icons a {
       color: white;
       margin: 0 10px;
       font-size: 24px;
@@ -317,20 +337,7 @@
       100% { transform: scale(1); }
     }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .sanskrit {
-        font-size: 1.5rem;
-      }
-
-      .benefits {
-        grid-template-columns: 1fr;
-      }
-    }
-        /* Mobile Responsiveness */
+    /* Mobile Responsiveness */
     @media (max-width: 992px) {
       header h1 {
         font-size: 2rem;
@@ -474,7 +481,7 @@
 </head>
 <body>
   <header>
-     <nav>
+    <nav>
       <div class="logo-container">
         <div class="logo">
           <img src="logo.png" alt="spiritly Logo">
@@ -510,22 +517,24 @@
     <p>The Supreme Vedic Mantra for Enlightenment</p>
   </header>
 
-  <div class="content-section fade-in">
-    <h2>The Gayatri Mantra</h2>
-    <div class="mantra-display pulse">
-      <div class="sanskrit">ॐ भूर्भुवः स्वः<br>तत्सवितुर्वरेण्यं<br>भर्गो देवस्य धीमहि<br>धियो यो नः प्रचोदयात्॥</div>
-      <div class="transliteration">Om Bhur Bhuvaḥ Swaḥ<br>Tat Savitur Vareṇyaṃ<br>Bhargo Devasya Dhīmahi<br>Dhiyo Yo Naḥ Prachodayāt</div>
-      <div class="meaning">We meditate upon the divine effulgence of that adorable Sun of spiritual consciousness;<br>May it enlighten our intellect and guide us on the path of righteousness.</div>
+  <div class="container">
+    <div class="content-section fade-in">
+      <h2>The Gayatri Mantra</h2>
+      <div class="mantra-display pulse">
+        <div class="sanskrit">ॐ भूर्भुवः स्वः<br>तत्सवितुर्वरेण्यं<br>भर्गो देवस्य धीमहि<br>धियो यो नः प्रचोदयात्॥</div>
+        <div class="transliteration">Om Bhur Bhuvaḥ Swaḥ<br>Tat Savitur Vareṇyaṃ<br>Bhargo Devasya Dhīmahi<br>Dhiyo Yo Naḥ Prachodayāt</div>
+        <div class="meaning">We meditate upon the divine effulgence of that adorable Sun of spiritual consciousness;<br>May it enlighten our intellect and guide us on the path of righteousness.</div>
+      </div>
     </div>
-  </div>
 
-  <div class="content-section fade-in">
-    <h2>Significance of Gayatri Mantra</h2>
-    <p>The Gayatri Mantra is considered one of the most universal of all Hindu mantras, invoking the universal Brahman as the principle of knowledge and the illumination of the primordial Sun.</p>
-    <div class="image-gallery">
-      <div class="gallery-item"><img src="photo3.jpg" alt=""><div class="gallery-caption">Divine illumination of Gayatri</div></div>
-      <div class="gallery-item"><img src="photo2.jpg" alt=""><div class="gallery-caption">Sacred chanting ceremony</div></div>
-      <div class="gallery-item"><img src="photo4.jpg" alt=""><div class="gallery-caption">Meditation and enlightenment</div></div>
+    <div class="content-section fade-in">
+      <h2>Significance of Gayatri Mantra</h2>
+      <p>The Gayatri Mantra is considered one of the most universal of all Hindu mantras, invoking the universal Brahman as the principle of knowledge and the illumination of the primordial Sun.</p>
+      <div class="image-gallery">
+        <div class="gallery-item"><img src="photo3.jpg" alt=""><div class="gallery-caption">Divine illumination of Gayatri</div></div>
+        <div class="gallery-item"><img src="photo2.jpg" alt=""><div class="gallery-caption">Sacred chanting ceremony</div></div>
+        <div class="gallery-item"><img src="photo4.jpg" alt=""><div class="gallery-caption">Meditation and enlightenment</div></div>
+      </div>
     </div>
   </div>
 
@@ -538,7 +547,6 @@
       <a href="terms and conditions.html" target="_blank">terms and conditions</a>
     </div> 
     <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
-
   </footer>
 
   <!-- Audio Element -->
@@ -568,6 +576,8 @@
         navMenu.classList.remove('show');
       }
     });
+
+    // Audio functionality
     window.onload = function () {
       const audio = document.getElementById('mantraAudio');
       audio.volume = 0.4;
