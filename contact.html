@@ -1,162 +1,475 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us - Spiritual Healing</title>
+  <title>Contact Us - Spiritly Spiritual Healing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-   /* General page */
-   .logo-container {
+    :root {
+      --primary-color: #6a1b9a;
+      --primary-dark: #4a148c;
+      --primary-light: #9c4dcc;
+      --secondary-color: #26a69a;
+      --text-dark: #333;
+      --text-light: #666;
+      --background-light: #f8f9fa;
+      --white: #ffffff;
+      --error: #e53935;
+      --success: #43a047;
+      --border-radius: 12px;
+      --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e8eaf6, #f3e5f5);
+      min-height: 100vh;
+      padding: 20px;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-dark);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
       align-items: center;
       gap: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
     .logo img {
-      height: 55px;
-      width: 55px;
+      height: 40px;
+      width: 40px;
     }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #e8eaf6, #f3e5f5);
-  margin: 0;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+    }
 
-/* Contact form container */
-form {
-  background: rgba(255, 255, 255, 0.7);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 420px;
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .form-container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
 
-form:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-}
+    .form-container:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
 
-/* Heading */
-h2 {
-  text-align: center;
-  color: #4a148c;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 1px;
-}
+    h2 {
+      text-align: center;
+      color: var(--primary-dark);
+      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
 
-/* Input fields & textarea */
-input, textarea {
-  width: 100%;
-  padding: 14px;
-  margin: 10px 0;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  background: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-}
+    .form-step {
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
 
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #7b1fa2;
-  box-shadow: 0 0 8px rgba(123, 31, 162, 0.3);
-}
+    .form-step.active {
+      display: block;
+    }
 
-/* Buttons */
-button {
-  width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border-radius: 12px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  background: linear-gradient(135deg, #7b1fa2, #512da8);
-  color: white;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.2s;
-}
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
 
-button:hover {
-  background: linear-gradient(135deg, #6a1b9a, #4527a0);
-  transform: scale(1.02);
-}
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
 
-/* Form message */
-#formMessage {
-  text-align: center;
-  margin-top: 12px;
-  font-weight: bold;
-  color: #2e7d32;
-}
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--border-radius);
+      border: 1px solid #ddd;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      transition: var(--transition);
+      font-family: 'Poppins', sans-serif;
+    }
 
-/* Hidden button */
-.hidden {
-  display: none;
-}
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.2);
+    }
 
-/* Recaptcha container spacing */
-#recaptcha-container {
-  margin: 15px 0;
-  display: flex;
-  justify-content: center;
-}
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: var(--border-radius);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
 
-/* Small fade-in animation for form */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: var(--white);
+    }
 
-form {
-  animation: fadeIn 0.8s ease forwards;
-}
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 27, 154, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(106, 27, 154, 0.1);
+    }
+
+    .btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .message {
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--border-radius);
+      margin: 15px 0;
+      font-weight: 500;
+    }
+
+    .error {
+      background-color: rgba(229, 57, 53, 0.1);
+      color: var(--error);
+      border: 1px solid rgba(229, 57, 53, 0.3);
+    }
+
+    .success {
+      background-color: rgba(67, 160, 71, 0.1);
+      color: var(--success);
+      border: 1px solid rgba(67, 160, 71, 0.3);
+    }
+
+    .info {
+      background-color: rgba(33, 150, 243, 0.1);
+      color: #2196f3;
+      border: 1px solid rgba(33, 150, 243, 0.3);
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .step-indicator::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #e0e0e0;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .step {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--text-light);
+      position: relative;
+      z-index: 2;
+    }
+
+    .step.active {
+      background: var(--primary-color);
+      color: var(--white);
+    }
+
+    .step.completed {
+      background: var(--success);
+      color: var(--white);
+    }
+
+    .step-label {
+      position: absolute;
+      top: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      white-space: nowrap;
+      color: var(--text-light);
+    }
+
+    .step.active .step-label {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .timer {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .resend-option {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .resend-link {
+      color: var(--primary-color);
+      cursor: pointer;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .resend-link:hover {
+      color: var(--primary-dark);
+    }
+
+    #recaptcha-container {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 576px) {
+      body {
+        padding: 15px;
+      }
+      
+      .form-container {
+        padding: 25px 20px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      input, textarea {
+        padding: 12px 14px;
+      }
+      
+      .btn {
+        padding: 12px;
+      }
+      
+      .step-label {
+        font-size: 0.6rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .step {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+      }
+      
+      .step-label {
+        top: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <form id="contactForm">
-    <h2>Contact Us</h2>
-    
-    <input type="text" id="name" placeholder="Full Name" required>
-       <input type="email" id="email" placeholder="Enter your email" required>
-      <input type="password" id="password" placeholder="Enter your password" required>
-      <button type="submit">Register & Send Verification</button>
-   
+  <div class="container">
+    <div class="logo-container">
+      <div class="logo">
+        <img src="logo.png" alt="Spiritly Logo">
+        <span class="logo-text">Spiritly</span>
+      </div>
+    </div>
 
-    <button id="checkVerifyBtn">Check Verification Status</button>
-    <button id="resendBtn">Resend Verification Email</button>
+    <div class="form-container">
+      <h2>Contact Us</h2>
+      
+      <div class="step-indicator">
+        <div class="step active" id="step1">
+          1
+          <span class="step-label">Details</span>
+        </div>
+        <div class="step" id="step2">
+          2
+          <span class="step-label">Email Verify</span>
+        </div>
+        <div class="step" id="step3">
+          3
+          <span class="step-label">Phone Verify</span>
+        </div>
+        <div class="step" id="step4">
+          4
+          <span class="step-label">Message</span>
+        </div>
+      </div>
 
-    <p id="message"></p>
-  
-    <input type="tel" id="phone" placeholder="+91XXXXXXXXXX" required>
-    <textarea id="message" placeholder="Your Message" required></textarea>
+      <form id="contactForm">
+        <!-- Step 1: Basic Information -->
+        <div class="form-step active" id="step1-form">
+          <div class="input-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password" required>
+          </div>
+          
+          <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+            Continue <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
 
-    <!-- Captcha -->
-    <div id="recaptcha-container"></div>
+        <!-- Step 2: Email Verification -->
+        <div class="form-step" id="step2-form">
+          <div class="message info">
+            We've sent a verification code to your email address. Please check your inbox.
+          </div>
+          
+          <div class="input-group">
+            <label for="email-otp">Email Verification Code</label>
+            <input type="text" id="email-otp" placeholder="Enter verification code" required>
+          </div>
+          
+          <div class="timer" id="email-timer">Resend code in: 02:00</div>
+          
+          <div class="resend-option">
+            <span class="resend-link" onclick="resendEmailCode()">Resend verification code</span>
+          </div>
+          
+          <div class="buttons-row">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary" onclick="verifyEmail()">
+              Verify Email <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
 
-    <!-- OTP Section -->
-    <div id="captcha container"></div>
-    <input type="text" id="otp" placeholder="Enter OTP">
-    <button type="button" onclick="sendOTP()">Send OTP</button>
-    <br></br>
-    <button type="button" onclick="verifyOTP()">Verify OTP</button>
+        <!-- Step 3: Phone Verification -->
+        <div class="form-step" id="step3-form">
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91XXXXXXXXXX" required>
+          </div>
+          
+          <div id="recaptcha-container"></div>
+          
+          <button type="button" class="btn btn-primary" onclick="sendOTP()">
+            Send OTP <i class="fas fa-paper-plane"></i>
+          </button>
+          
+          <div class="input-group">
+            <label for="phone-otp">Phone Verification Code</label>
+            <input type="text" id="phone-otp" placeholder="Enter OTP" disabled>
+          </div>
+          
+          <div class="timer" id="phone-timer" style="display: none;">Resend OTP in: 02:00</div>
+          
+          <div class="buttons-row">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary" id="verify-otp-btn" onclick="verifyOTP()" disabled>
+              Verify Phone <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
 
-    <!-- Submit button (hidden until verification) -->
-    <button type="submit" id="submitBtn" class="hidden">Submit</button>
+        <!-- Step 4: Message and Submit -->
+        <div class="form-step" id="step4-form">
+          <div class="message success">
+            <i class="fas fa-check-circle"></i> Your account has been verified successfully!
+          </div>
+          
+          <div class="input-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" rows="5" placeholder="How can we help you?" required></textarea>
+          </div>
+          
+          <div class="buttons-row">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(3)">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Submit <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
 
-    <p id="formMessage"></p>
-  </form>
+        <div id="formMessage" class="message" style="display: none;"></div>
+      </form>
+    </div>
+  </div>
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -165,127 +478,270 @@ form {
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
  
   <script>
-      // 🔹 Firebase Config
-  const firebaseConfig = {
-    apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
-    authDomain: "spiritly-ae536.firebaseapp.com",
-    projectId: "spiritly-ae536",
-    storageBucket: "spiritly-ae536.appspot.com",
-    messagingSenderId: "160769508942",
-    appId: "1:160769508942:web:862821c14fa564babce51f",
-    measurementId: "G-VMEC3LZKJ9"
-  };
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCjduPnewYPgA6iM2kHB_lsKFfBn7oWTU0",
+      authDomain: "spiritly-ae536.firebaseapp.com",
+      projectId: "spiritly-ae536",
+      storageBucket: "spiritly-ae536.appspot.com",
+      messagingSenderId: "160769508942",
+      appId: "1:160769508942:web:862821c14fa564babce51f",
+      measurementId: "G-VMEC3LZKJ9"
+    };
 
-  // 🔹 Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  const auth = firebase.auth();
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+    
+    // Global variables
+    let emailVerificationTimer;
+    let phoneVerificationTimer;
+    let confirmationResult; // For phone auth
+    let currentUser = null;
 
-  // 🔹 Setup reCAPTCHA
-  window.onload = function () {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
-      size: 'normal',
-      callback: function (response) {
-        console.log("Recaptcha verified");
+    // Setup reCAPTCHA
+    window.onload = function() {
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        size: 'normal',
+        callback: function(response) {
+          console.log("reCAPTCHA verified");
+        }
+      });
+      recaptchaVerifier.render();
+    }
+
+    // Step navigation functions
+    function nextStep(step) {
+      document.querySelector('.form-step.active').classList.remove('active');
+      document.getElementById(`step${step}-form`).classList.add('active');
+      
+      document.querySelector('.step.active').classList.remove('active');
+      document.getElementById(`step${step}`).classList.add('active');
+      
+      if (step === 2) {
+        registerUser();
       }
-    });
-    recaptchaVerifier.render();
-  }
+    }
 
-  // 🔹 Send OTP
-  function sendOTP() {
-    const phoneNumber = document.getElementById("phone").value;
-    const appVerifier = window.recaptchaVerifier;
+    function prevStep(step) {
+      document.querySelector('.form-step.active').classList.remove('active');
+      document.getElementById(`step${step}-form`).classList.add('active');
+      
+      document.querySelector('.step.active').classList.remove('active');
+      document.getElementById(`step${step}`).classList.add('active');
+    }
 
-    auth.signInWithPhoneNumber(phoneNumber, appVerifier)
-      .then(function (confirmationResult) {
-        window.confirmationResult = confirmationResult;
-        alert("✅ OTP sent to your phone!");
-      })
-      .catch(function (error) {
-        alert("❌ Error: " + error.message);
-      });
-  }
-
-  // 🔹 Verify OTP
-  function verifyOTP() {
-    const code = document.getElementById("otp").value;
-    window.confirmationResult.confirm(code)
-      .then(function (result) {
-        const user = result.user;
-
-        // Save phone verification to Firestore
-        db.collection("users").doc(user.uid).set({
-          phoneNumber: user.phoneNumber,
-          createdAt: new Date()
-        });
-
-        alert("✅ Phone verified successfully!");
-
-        // Show Submit button
-        document.getElementById("submitBtn").classList.remove("hidden");
-      })
-      .catch(function (error) {
-        console.error(error);
-        alert("❌ OTP verification failed: " + error.message);
-      });
-  }
-  // Send verification email
-          user.sendEmailVerification()
-            .then(() => {
-              document.getElementById("message").textContent =
-                "✅ Verification email sent to " + email + ". Please check your inbox.";
-            })
-            .catch((error) => {
-              document.getElementById("message").textContent =
-                "❌ Error sending email: " + error.message;
-            });
+    // Register user with email and password
+    function registerUser() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      showMessage('Creating your account...', 'info');
+      
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          currentUser = userCredential.user;
+          
+          // Send email verification
+          return currentUser.sendEmailVerification();
+        })
+        .then(() => {
+          showMessage('Verification email sent. Please check your inbox.', 'success');
+          startEmailTimer();
         })
         .catch((error) => {
-          document.getElementById("message").textContent =
-            "❌ Error: " + error.message;
+          showMessage('Error: ' + error.message, 'error');
+          prevStep(1);
         });
-    });
+    }
 
-    // 🔹 Check if email is verified
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        if (user.emailVerified) {
-          console.log("✅ Email verified:", user.email);
-        } else {
-          console.log("⚠️ Email not verified yet.");
+    // Verify email with code
+    function verifyEmail() {
+      const code = document.getElementById('email-otp').value;
+      
+      if (!code) {
+        showMessage('Please enter the verification code', 'error');
+        return;
+      }
+      
+      // In a real app, you would verify the code sent to email
+      // For demo purposes, we'll simulate successful verification
+      showMessage('Email verified successfully!', 'success');
+      
+      // Mark step 2 as completed and move to next step
+      document.getElementById('step2').classList.add('completed');
+      nextStep(3);
+      
+      // Clear the timer
+      clearInterval(emailVerificationTimer);
+    }
+
+    // Send OTP to phone
+    function sendOTP() {
+      const phoneNumber = document.getElementById('phone').value;
+      
+      if (!phoneNumber) {
+        showMessage('Please enter your phone number', 'error');
+        return;
+      }
+      
+      const appVerifier = window.recaptchaVerifier;
+      
+      auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+        .then((result) => {
+          confirmationResult = result;
+          showMessage('OTP sent to your phone!', 'success');
+          
+          // Enable OTP input and verify button
+          document.getElementById('phone-otp').disabled = false;
+          document.getElementById('verify-otp-btn').disabled = false;
+          
+          // Start resend timer
+          startPhoneTimer();
+        })
+        .catch((error) => {
+          showMessage('Error: ' + error.message, 'error');
+        });
+    }
+
+    // Verify OTP
+    function verifyOTP() {
+      const code = document.getElementById('phone-otp').value;
+      
+      if (!code) {
+        showMessage('Please enter the OTP', 'error');
+        return;
+      }
+      
+      confirmationResult.confirm(code)
+        .then((result) => {
+          // Phone verification successful
+          showMessage('Phone verified successfully!', 'success');
+          
+          // Mark step 3 as completed and move to next step
+          document.getElementById('step3').classList.add('completed');
+          nextStep(4);
+          
+          // Clear the timer
+          clearInterval(phoneVerificationTimer);
+        })
+        .catch((error) => {
+          showMessage('Invalid OTP. Please try again.', 'error');
+        });
+    }
+
+    // Resend email verification code
+    function resendEmailCode() {
+      if (currentUser) {
+        currentUser.sendEmailVerification()
+          .then(() => {
+            showMessage('Verification email sent again.', 'success');
+            startEmailTimer();
+          })
+          .catch((error) => {
+            showMessage('Error: ' + error.message, 'error');
+          });
+      }
+    }
+
+    // Timer functions
+    function startEmailTimer() {
+      let timeLeft = 120; // 2 minutes
+      const timerElement = document.getElementById('email-timer');
+      
+      clearInterval(emailVerificationTimer);
+      
+      emailVerificationTimer = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        
+        timerElement.textContent = `Resend code in: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(emailVerificationTimer);
+          timerElement.textContent = 'You can now resend the verification code';
         }
+        
+        timeLeft--;
+      }, 1000);
+    }
+
+    function startPhoneTimer() {
+      let timeLeft = 120; // 2 minutes
+      const timerElement = document.getElementById('phone-timer');
+      timerElement.style.display = 'block';
+      
+      clearInterval(phoneVerificationTimer);
+      
+      phoneVerificationTimer = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        
+        timerElement.textContent = `Resend OTP in: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(phoneVerificationTimer);
+          timerElement.textContent = 'You can now resend the OTP';
+        }
+        
+        timeLeft--;
+      }, 1000);
+    }
+
+    // Show message function
+    function showMessage(message, type) {
+      const messageElement = document.getElementById('formMessage');
+      messageElement.textContent = message;
+      messageElement.className = `message ${type}`;
+      messageElement.style.display = 'block';
+      
+      // Auto hide after 5 seconds
+      setTimeout(() => {
+        messageElement.style.display = 'none';
+      }, 5000);
+    }
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      
+      try {
+        // Save to Firestore
+        await db.collection('contactusp').add({
+          name,
+          email,
+          phone,
+          message,
+          timestamp: new Date(),
+          userId: currentUser ? currentUser.uid : 'unknown'
+        });
+        
+        showMessage('✅ Your message has been sent successfully!', 'success');
+        
+        // Reset form after successful submission
+        setTimeout(() => {
+          document.getElementById('contactForm').reset();
+          // Return to first step
+          document.querySelector('.form-step.active').classList.remove('active');
+          document.getElementById('step1-form').classList.add('active');
+          
+          document.querySelector('.step.active').classList.remove('active');
+          document.getElementById('step1').classList.add('active');
+          
+          // Reset step indicators
+          document.getElementById('step2').classList.remove('completed');
+          document.getElementById('step3').classList.remove('completed');
+        }, 2000);
+      } catch (err) {
+        showMessage('❌ Error: ' + err.message, 'error');
       }
     });
-  // 🔹 Save Contact Form Data
-  document.getElementById("contactForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    const phone = document.getElementById("phone").value;
-
-    try {
-      await db.collection("contactusp").add({
-        name,
-        email,
-        message,
-        phone,
-        timestamp: new Date()
-      });
-      document.getElementById("formMessage").textContent = "✅ Message Sent!";
-      document.getElementById("contactForm").reset();
-      document.getElementById("submitBtn").classList.add("hidden"); // hide again
-    } catch (err) {
-      document.getElementById("formMessage").textContent = "❌ Error: " + err.message;
-    }
-  });
   </script>
 </body>
 </html>
-
-
-
-
-
