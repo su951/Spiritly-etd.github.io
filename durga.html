@@ -15,24 +15,6 @@
     Your browser does not support audio.
   </audio>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const audio = document.getElementById('bgAudio');
-      audio.volume = 0.5; // Medium volume
-
-      // Attempt autoplay
-      audio.play().catch(() => {
-        document.getElementById('audioControls').style.display = 'block';
-      });
-
-      // Enable audio on first user interaction
-      document.body.addEventListener('click', function initAudio() {
-        audio.play();
-        document.body.removeEventListener('click', initAudio);
-      }, { once: true });
-    });
-  </script>
-
   <header>
     <nav>
         <div class="logo-container">
@@ -304,7 +286,7 @@
     <div>&copy; 2025 Spiritly. All Rights Reserved.</div>
 
   </footer>
-</body>
+
     <script>
              
     document.addEventListener('DOMContentLoaded', function() {
@@ -330,5 +312,6 @@
     navMenu.classList.toggle('show');
   });
     </script>
+  </body>
 </html>
 
