@@ -306,7 +306,24 @@
   </footer>
 </body>
     <script>
-            
+             
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('bgAudio');
+      audio.volume = 0.5; // Medium volume
+
+      // Attempt autoplay
+      audio.play().catch(() => {
+        document.getElementById('audioControls').style.display = 'block';
+      });
+
+      // Enable audio on first user interaction
+      document.body.addEventListener('click', function initAudio() {
+        audio.play();
+        document.body.removeEventListener('click', initAudio);
+      }, { once: true });
+    });
+
+
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
   menuToggle.addEventListener('click', () => {
